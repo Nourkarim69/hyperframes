@@ -44,13 +44,14 @@ if ! python3 -c "import kokoro_onnx, torch, transformers, rembg, scenedetect" 2>
 fi
 
 # 4. whisper.cpp (transcription / auto captions), built where HyperFrames looks for it.
+# GGML_NATIVE is off: cloud VMs advertise CPU features (AVX-512) that crash whisper-cli with SIGILL.
 WHISPER="$CACHE/whisper/whisper.cpp"
 if [ ! -x "$WHISPER/build/bin/whisper-cli" ]; then
   log "building whisper.cpp"
   rm -rf "$WHISPER"
   mkdir -p "$CACHE/whisper"
   git clone --depth 1 https://github.com/ggml-org/whisper.cpp.git "$WHISPER" >/dev/null 2>&1
-  (cd "$WHISPER" && cmake -B build -DCMAKE_BUILD_TYPE=Release >/dev/null && cmake --build build --config Release -j"$(nproc)" >/dev/null)
+  (cd "$WHISPER" && cmake -B build -DCMAKE_BUILD_TYPE=Release -DGGML_NATIVE=OFF -DGGML_AVX=ON -DGGML_AVX2=ON -DGGML_FMA=ON -DGGML_F16C=ON >/dev/null && cmake --build build --config Release -j"$(nproc)" >/dev/null)
 fi
 
 # 5. Models.
@@ -63,7 +64,9 @@ fetch "https://github.com/danielgatis/rembg/releases/download/v0.0.0/u2net_human
   "$HOME/.rembg/models/u2net_human_seg/u2net_human_seg.onnx"
 # huggingface_hub retries for minutes when its CDN is blocked, so probe it first.
 if curl -fsSL -o /dev/null --max-time 20 -r 0-99 "$HF_WHISPER/ggml-small.bin"; then
-  python3 -c "from huggingface_hub import snapshot_download; snapshot_download('facebook/musicgen-small')" >/dev/null 2>&1 \
+  # Xet transfers go through hosts the proxy may block; plain CDN downloads work.
+  # Only the safetensors weights are needed, not the duplicate .bin checkpoints.
+  HF_HUB_DISABLE_XET=1 python3 -c "from huggingface_hub import snapshot_download; snapshot_download('facebook/musicgen-small', allow_patterns=['*.json', '*.model', 'model.safetensors'])" >/dev/null 2>&1 \
     || log "MusicGen model download failed"
 else
   log "huggingface CDN unreachable, skipping MusicGen model"
