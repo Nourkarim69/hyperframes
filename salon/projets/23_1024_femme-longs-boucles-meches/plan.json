@@ -1,0 +1,152 @@
+[
+ {
+  "src": "PXL_20261024_082353454.mp4",
+  "ss": 2.7,
+  "dur": 1.254,
+  "start": 0,
+  "zoom": 1.0,
+  "cx": 0.5,
+  "cy": 0.5,
+  "desc": "avant - de dos"
+ },
+ {
+  "src": "PXL_20261024_091111867.mp4",
+  "ss": 1.767,
+  "dur": 0.627,
+  "start": 1.254,
+  "zoom": 1.3,
+  "cx": 0.5,
+  "cy": 0.45,
+  "desc": "sections"
+ },
+ {
+  "src": "PXL_20261024_091410242.mp4",
+  "ss": 15.033,
+  "dur": 0.627,
+  "start": 1.881,
+  "zoom": 1.5,
+  "cx": 0.65,
+  "cy": 0.45,
+  "desc": "travail des boucles"
+ },
+ {
+  "src": "PXL_20261024_091410242.mp4",
+  "ss": 60.567,
+  "dur": 0.627,
+  "start": 2.508,
+  "zoom": 1.5,
+  "cx": 0.65,
+  "cy": 0.45,
+  "desc": "mise en forme"
+ },
+ {
+  "src": "PXL_20261024_091410242.mp4",
+  "ss": 94.233,
+  "dur": 0.627,
+  "start": 3.135,
+  "zoom": 1.5,
+  "cx": 0.65,
+  "cy": 0.45,
+  "desc": "mise en forme 2"
+ },
+ {
+  "src": "PXL_20261024_091410242.mp4",
+  "ss": 146.0,
+  "dur": 0.627,
+  "start": 3.762,
+  "zoom": 1.5,
+  "cx": 0.65,
+  "cy": 0.5,
+  "desc": "s\u00e9chage t\u00eate en bas"
+ },
+ {
+  "src": "PXL_20261024_091937522.mp4",
+  "ss": 10.967,
+  "dur": 0.627,
+  "start": 4.389,
+  "zoom": 1.5,
+  "cx": 0.5,
+  "cy": 0.5,
+  "desc": "s\u00e9chage diffuseur"
+ },
+ {
+  "src": "PXL_20261024_091937522.mp4",
+  "ss": 23.233,
+  "dur": 0.627,
+  "start": 5.016,
+  "zoom": 1.5,
+  "cx": 0.5,
+  "cy": 0.5,
+  "desc": "s\u00e9chage 2"
+ },
+ {
+  "src": "PXL_20261024_092439636.mp4",
+  "ss": 11.4,
+  "dur": 0.627,
+  "start": 5.643,
+  "zoom": 1.5,
+  "cx": 0.5,
+  "cy": 0.45,
+  "desc": "boucles retourn\u00e9es"
+ },
+ {
+  "src": "PXL_20261024_092439636.mp4",
+  "ss": 32.467,
+  "dur": 0.627,
+  "start": 6.27,
+  "zoom": 1.5,
+  "cx": 0.5,
+  "cy": 0.45,
+  "desc": "r\u00e9v\u00e9lation"
+ },
+ {
+  "src": "PXL_20261024_092748982.mp4",
+  "ss": 6.9,
+  "dur": 0.627,
+  "start": 6.897,
+  "zoom": 1.5,
+  "cx": 0.5,
+  "cy": 0.45,
+  "desc": "finitions"
+ },
+ {
+  "src": "PXL_20261024_101635375.mp4",
+  "ss": 5.367,
+  "dur": 1.254,
+  "start": 7.524,
+  "zoom": 1.15,
+  "cx": 0.5,
+  "cy": 0.45,
+  "desc": "r\u00e9sultat - de dos"
+ },
+ {
+  "src": "PXL_20261024_114838389.mp4",
+  "ss": 1.3,
+  "dur": 1.254,
+  "start": 8.778,
+  "zoom": 1.2,
+  "cx": 0.5,
+  "cy": 0.45,
+  "desc": "r\u00e9sultat - boucles"
+ },
+ {
+  "src": "PXL_20261024_114838389.mp4",
+  "ss": 14.733,
+  "dur": 1.254,
+  "start": 10.032,
+  "zoom": 1.2,
+  "cx": 0.5,
+  "cy": 0.45,
+  "desc": "r\u00e9sultat - mouvement"
+ },
+ {
+  "src": "PXL_20261024_114834963.jpg",
+  "ss": 0,
+  "dur": 2.508,
+  "start": 11.286,
+  "zoom": 1.05,
+  "cx": 0.5,
+  "cy": 0.5,
+  "desc": "r\u00e9sultat final"
+ }
+]

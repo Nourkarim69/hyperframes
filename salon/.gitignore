@@ -1,0 +1,6 @@
+rushs/
+projets/*/assets/plan*.mp4
+projets/*/assets/gsap.min.js
+projets/*/renders/
+projets/*/.hyperframes/
+!projets/*/compositions/

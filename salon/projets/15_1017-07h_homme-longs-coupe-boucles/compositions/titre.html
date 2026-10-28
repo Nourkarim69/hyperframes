@@ -1,0 +1,15 @@
+<template>
+  <div id="root" data-composition-id="titre" data-width="1080" data-height="1920">
+    <style>
+      #root { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; }
+      #titre-texte {
+        font-family: "League Gothic", "Oswald", sans-serif; font-size: 46px; letter-spacing: 0.02em;
+        color: #fff; text-shadow: 0 2px 8px rgba(0, 0, 0, 0.45); text-transform: uppercase;
+      }
+    </style>
+    <div id="titre-texte" data-var-text="titre">Longueurs 🤝 Boucles</div>
+    <script>
+      window.__timelines["titre"] = gsap.timeline({ paused: true });
+    </script>
+  </div>
+</template>
