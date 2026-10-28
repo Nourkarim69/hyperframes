@@ -1,0 +1,114 @@
+[
+ {
+  "src": "PXL_20261009_075908567.mp4",
+  "ss": 0.2,
+  "dur": 1.254,
+  "start": 0,
+  "desc": "avant - de dos, boucles longues",
+  "motion": 9.46
+ },
+ {
+  "src": "PXL_20261009_075929555.mp4",
+  "ss": 7.167,
+  "dur": 0.627,
+  "start": 1.254,
+  "desc": "avant - de face dans le miroir",
+  "motion": 9.16
+ },
+ {
+  "src": "PXL_20261009_080847934.mp4",
+  "ss": 12.767,
+  "dur": 0.627,
+  "start": 1.881,
+  "desc": "sections, mains dans les cheveux",
+  "motion": 2.63
+ },
+ {
+  "src": "PXL_20261009_080847934.mp4",
+  "ss": 40.367,
+  "dur": 0.627,
+  "start": 2.508,
+  "desc": "coupe au peigne",
+  "motion": 2.26
+ },
+ {
+  "src": "PXL_20261009_082028211.mp4",
+  "ss": 17.167,
+  "dur": 0.627,
+  "start": 3.135,
+  "desc": "ciseaux sur la nuque",
+  "motion": 3.55
+ },
+ {
+  "src": "PXL_20261009_082028211.mp4",
+  "ss": 25.567,
+  "dur": 0.627,
+  "start": 3.762,
+  "desc": "coupe sur le c\u00f4t\u00e9",
+  "motion": 2.78
+ },
+ {
+  "src": "PXL_20261009_082200921.mp4",
+  "ss": 26.567,
+  "dur": 0.627,
+  "start": 4.389,
+  "desc": "ciseaux, frange",
+  "motion": 1.96
+ },
+ {
+  "src": "PXL_20261009_082545207.mp4",
+  "ss": 3.733,
+  "dur": 0.627,
+  "start": 5.016,
+  "desc": "coupe de pointe sur le dessus",
+  "motion": 2.0
+ },
+ {
+  "src": "PXL_20261009_083401859.mp4",
+  "ss": 8.733,
+  "dur": 0.627,
+  "start": 5.643,
+  "desc": "peigne sur la frange",
+  "motion": 3.12
+ },
+ {
+  "src": "PXL_20261009_083401859.mp4",
+  "ss": 19.5,
+  "dur": 0.627,
+  "start": 6.27,
+  "desc": "frange qui retombe",
+  "motion": 1.65
+ },
+ {
+  "src": "PXL_20261009_084451040.mp4",
+  "ss": 10.7,
+  "dur": 0.627,
+  "start": 6.897,
+  "desc": "coiffage aux doigts",
+  "motion": 3.84
+ },
+ {
+  "src": "PXL_20261009_084451040.mp4",
+  "ss": 34.633,
+  "dur": 0.627,
+  "start": 7.524,
+  "desc": "finitions",
+  "motion": 2.51
+ },
+ {
+  "src": "PXL_20261009_083822144.mp4",
+  "ss": 0.4,
+  "dur": 1.254,
+  "start": 8.151,
+  "desc": "r\u00e9sultat - de dos",
+  "motion": 5.71
+ },
+ {
+  "src": "PXL_20261009_083822144.mp4",
+  "ss": 6.4,
+  "dur": 2.508,
+  "start": 9.405,
+  "desc": "r\u00e9sultat - de face",
+  "motion": 2.09
+ }
+]
