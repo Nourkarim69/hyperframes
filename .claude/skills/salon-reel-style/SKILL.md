@@ -60,6 +60,19 @@ Règles :
 - Deux moitiés empilées de 1080×960 : **en haut le geste**, étiquette `PROCESS` ; **en bas le résultat**, étiquette `RESULT`. Chaque étiquette est centrée dans sa moitié.
 - Les deux moitiés coupent **en même temps**, sur le temps, toutes les ~1,5 s ; chaque paire montre un client différent (ou une étape différente du même client).
 
+## Scripts (dans `scripts/`)
+
+Chaîne éprouvée sur les premiers clients ; les rushs du téléphone sont en HDR HLG 10 bits, les scripts les convertissent en SDR.
+
+1. `prep.sh <dossier-client>` : copies légères SDR 360×640, planches horodatées (1 image / 2 s) et mesure du mouvement de chaque vidéo, dans `<dossier>/_travail/`.
+2. Écrire `_travail/spec.json` : `{"beat": <s par temps>, "shots": [[fichier, t_candidat, nb_temps, recherche_s, zoom, cx, cy, "desc"], ...]}`. Le script choisit dans ±`recherche_s` la fenêtre où le geste bouge le plus. Une photo `.jpg` devient un plan fixe avec un très léger zoom.
+3. `montage.py <dossier> <spec> picks` : planche des plans recadrés et étalonnés pour vérifier le cadrage. Corriger `zoom`/`cx`/`cy` puis relancer.
+4. Musique : la générer (MusicGen, même prompt « moody chic deep house, 95 bpm… »), puis détecter les temps (librosa). Mettre `beat` dans la spec et noter le premier temps : c'est le décalage de la musique.
+5. `montage.py <dossier> <spec> extract` : plans 1080×1920 SDR étalonnés dans `_montage/assets/`.
+6. `build.py <dossier> "<Titre 🤝 Titre>" <decalage_musique> <plans_flash>` : écrit la composition HyperFrames (plans, titre, flashs noirs, musique à -16 LUFS puis volume 0,7). Ensuite `npx hyperframes check` puis `render`.
+
+Étalonnage par défaut : `eq=contrast=1.1:brightness=-0.03:saturation=0.8:gamma=0.92,vignette=angle=PI/5` sur la conversion HDR → SDR (luminance ~75-80).
+
 ## Méthode pour chaque nouveau client
 
 1. Lister les rushs reçus (`ffprobe`), repérer les plans (`scenedetect` ou `ffmpeg select=gt(scene,0.2)`), faire une planche contact pour choisir les meilleurs gestes.
