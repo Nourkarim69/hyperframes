@@ -19,4 +19,5 @@ for d in "$EP"/build/shorts/*/; do
     render "$d" "$EP/out/$id.mp4"
   fi
 done
+cp "$EP"/build/*.srt "$EP/out/" 2>/dev/null || true
 ls -lh "$EP/out"

@@ -23,7 +23,9 @@ series/<show>/
 3. Build: `python3 .claude/skills/kids-series/scripts/build_episode.py series/<show>/epNN-<slug>`
 4. Check: `cd <ep>/build/long && npx hyperframes lint && npx hyperframes check --json`; snapshot a few frames (`npx hyperframes snapshot --at 12,40,90`) and look at them.
 5. Render: `.claude/skills/kids-series/scripts/render_episode.sh series/<show>/epNN-<slug>` (`long`, `shorts` or one short id as 2nd arg; `draft` as 3rd for a fast pass).
-6. Deliver the MP4s from `out/` with the titles/descriptions in `build/publish.json`. Mark as **made for kids** on YouTube.
+6. Deliver the MP4s from `out/` with the titles/descriptions in `build/publish.json`, plus the matching `.srt` files (upload them on YouTube: Subtitles → Upload file → With timing). Mark as **made for kids** on YouTube.
+
+Subtitles are on by default: the long episode burns them in at the bottom, coloured by speaker (`WHO_COLOR` in `build_episode.py`); Shorts burn word-pop captions under the action. Both also get an `.srt`.
 
 First time in a session: the SessionStart hook installs Kokoro; if `~/.cache/hyperframes/tts/models/kokoro-v1.0.onnx` is missing, run `.claude/hooks/session-start.sh`. A new show needs `python3 scripts/music.py series/<show>/music/bed.wav` once.
 

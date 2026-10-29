@@ -466,6 +466,7 @@ CAP_TMPL = """<template>
 
 
 def chunk_words(text, max_words=3):
+    """Group words into caption chunks, breaking after punctuation."""
     words = text.split()
     out, cur = [], []
     for w in words:
@@ -496,6 +497,65 @@ def captions_html(lines, total, hook, brand, hookdur):
             n += 1
     return CAP_TMPL.format(top=1530, total=f"{total:.3f}", hookdur=f"{hookdur:.3f}", hook=hook, brand=brand,
                            caps="\n".join(caps), tweens="\n".join(tws))
+
+
+# ---------------------------------------------------------------- subtitles
+WHO_COLOR = {"pip": "#FFB04A", "hazel": "#FF9ACB", "ollie": "#A8D4FF", "twinkle": "#FFE45C", "narrator": "#FFFFFF"}
+
+
+def timed_chunks(lines, max_words):
+    """Split each spoken line into subtitle chunks timed by their share of the characters."""
+    out = []
+    for ln in lines:
+        chunks = chunk_words(ln["text"], max_words)
+        weights = [sum(len(w) for w in c) + 2 for c in chunks]
+        t = ln["start"]
+        for c, wgt in zip(chunks, weights):
+            d = ln["dur"] * wgt / sum(weights)
+            out.append({"start": t, "dur": d, "text": " ".join(c), "who": ln["who"]})
+            t += d
+    return out
+
+
+def srt_time(t):
+    ms = int(round(t * 1000))
+    return f"{ms // 3600000:02d}:{ms // 60000 % 60:02d}:{ms // 1000 % 60:02d},{ms % 1000:03d}"
+
+
+def write_srt(path, chunks):
+    with open(path, "w") as fh:
+        for i, c in enumerate(chunks, 1):
+            fh.write(f"{i}\n{srt_time(c['start'])} --> {srt_time(c['start'] + c['dur'] - 0.02)}\n{c['text']}\n\n")
+
+
+SUB_TMPL = """<template>
+  <style>
+    #root {{ position: absolute; inset: 0; }}
+    .sub {{ position: absolute; left: 200px; right: 200px; top: 930px; text-align: center; font-family: Nunito, sans-serif;
+      font-weight: 900; font-size: 58px; line-height: 1.1; -webkit-text-stroke: 10px #2b1650; paint-order: stroke fill;
+      text-shadow: 0 6px 0 rgba(43,22,80,.6); }}
+    .sub span {{ display: inline-block; }}
+  </style>
+  <div id="root" data-composition-id="subtitles" data-width="1920" data-height="1080" data-layout-allow-overflow>
+{subs}
+  </div>
+  <script>
+    const tl = gsap.timeline({{ paused: true }});
+{tweens}
+    window.__timelines["subtitles"] = tl;
+  </script>
+</template>
+"""
+
+
+def subtitles_long_html(chunks):
+    subs, tws = [], []
+    for i, c in enumerate(chunks):
+        sid = f"sub{i}"
+        subs.append(f'    <div id="{sid}" class="sub clip" data-start="{c["start"]:.3f}" data-duration="{c["dur"]:.3f}" '
+                    f'style="color:{WHO_COLOR.get(c["who"], "#fff")}"><span>{c["text"]}</span></div>')
+        tws.append(f'    tl.fromTo("#{sid} span", {{ y: 18, opacity: 0 }}, {{ y: 0, opacity: 1, duration: 0.16, ease: "power2.out" }}, {c["start"]:.3f});')
+    return SUB_TMPL.format(subs="\n".join(subs), tweens="\n".join(tws))
 
 
 # ---------------------------------------------------------------- main
@@ -565,6 +625,14 @@ def main():
         sc["abs"] = t
         t += sc["dur"]
     total = t
+    long_lines = [dict(ln, start=sc["abs"] + ln["start"]) for sc in scenes for ln in sc["lines"]]
+    subs = timed_chunks(long_lines, 7)
+    with open(os.path.join(long_dir, "compositions", "subtitles.html"), "w") as fh:
+        fh.write(subtitles_long_html(subs))
+    hosts.append(f'      <div id="subtitles" data-composition-id="subtitles" data-composition-src="compositions/subtitles.html" '
+                 f'data-start="0" data-duration="{total:.3f}" data-track-index="2" data-track-kind="captions" '
+                 f'data-width="1920" data-height="1080" style="z-index: 5"></div>')
+    write_srt(os.path.join(build, "long.srt"), subs)
     bed = music_bed(series_dir, total, os.path.join(long_dir, "assets", "music.wav"))
     if bed:
         audios.append(audio_tag("music", "assets/music.wav", 0, total, 0.13, 7, ' data-timeline-role="music"'))
@@ -575,7 +643,7 @@ def main():
     # ---- shorts
     publish = {
         "long": {
-            "file": "out/long.mp4", "duration_s": round(total, 1),
+            "file": "out/long.mp4", "subtitles": "out/long.srt", "duration_s": round(total, 1),
             "title": f"{ep['title']} | {series} | Bedtime Stories for Kids",
             "description": f"{ep['title']} - Episode {ep['number']} of {series}. {ep.get('lesson', '')}\n\n"
                            f"Join Pip the little fox and friends for gentle bedtime adventures in Whispering Woods.\n\n#kids #bedtimestories #cartoon",
@@ -618,6 +686,7 @@ def main():
         t += end["dur"]
         total_s = t
         cap = captions_html(lines, total_s, sh["hook"], series.upper(), total_s - end["dur"])
+        write_srt(os.path.join(build, f"{sh['id']}.srt"), timed_chunks(lines, 7))
         with open(os.path.join(sdir, "compositions", "captions.html"), "w") as fh:
             fh.write(cap)
         hosts.append(f'      <div id="captions" data-composition-id="captions" data-composition-src="compositions/captions.html" '
@@ -629,7 +698,7 @@ def main():
         with open(os.path.join(sdir, "index.html"), "w") as fh:
             fh.write(index_html(f"{series} - {sh['hook']}", SHORT, total_s, hosts, audios))
         publish["shorts"].append({
-            "id": sh["id"], "file": f"out/{sh['id']}.mp4", "duration_s": round(total_s, 1),
+            "id": sh["id"], "file": f"out/{sh['id']}.mp4", "subtitles": f"out/{sh['id']}.srt", "duration_s": round(total_s, 1),
             "title": f"{sh['hook']} #shorts #kids",
             "description": f"From \"{ep['title']}\" - {series} episode {ep['number']}. Full episode on the channel!\n#shorts #kidsstory #cartoon",
         })
