@@ -1,0 +1,714 @@
+{
+  "number": 1,
+  "title": "Pip and the Fallen Star",
+  "lesson": "Sharing joy can lift a friend up.",
+  "next": "Next time on Pip and Friends: who is knocking on Pip's door in the middle of a storm?",
+  "scenes": [
+    {
+      "id": "s01",
+      "setting": {
+        "place": "burrow",
+        "time": "night"
+      },
+      "chars": {
+        "pip": {
+          "x": 820,
+          "face": 1,
+          "emo": "happy",
+          "look": "up"
+        },
+        "twinkle": {
+          "x": 1700,
+          "y": -400
+        }
+      },
+      "beats": [
+        {
+          "say": "narrator",
+          "text": "Deep in Whispering Woods, where the fireflies glow, lived a little fox named Pip."
+        },
+        {
+          "say": "narrator",
+          "text": "And more than anything in the whole wide world, Pip loved the stars.",
+          "cam": "pip"
+        },
+        {
+          "say": "pip",
+          "text": "One, two, three... a hundred stars! Goodnight, stars!",
+          "do": {
+            "pip": {
+              "emo": "excited",
+              "gest": "wave"
+            }
+          }
+        },
+        {
+          "wait": 1.6,
+          "sfx": ["whoosh-short", "sparkle"],
+          "cam": "wide",
+          "do": {
+            "twinkle": {
+              "move": [1180, 700],
+              "time": 1.4,
+              "emo": "scared"
+            },
+            "pip": {
+              "emo": "surprised",
+              "look": "twinkle"
+            }
+          },
+          "fx": [
+            ["trail", "twinkle", 1.4],
+            ["flash", 1.4]
+          ]
+        },
+        {
+          "say": "pip",
+          "text": "Whoa! A shooting star... and it landed right here!",
+          "do": {
+            "pip": {
+              "gest": "hop"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "setting": {
+        "place": "burrow",
+        "time": "night"
+      },
+      "chars": {
+        "pip": {
+          "x": 820,
+          "face": 1,
+          "emo": "surprised",
+          "look": "twinkle"
+        },
+        "twinkle": {
+          "x": 1180,
+          "y": 700,
+          "face": -1,
+          "emo": "sad",
+          "glow": 0.5
+        }
+      },
+      "beats": [
+        {
+          "do": {
+            "pip": {
+              "move": [960],
+              "emo": "neutral"
+            }
+          },
+          "wait": 1.0
+        },
+        {
+          "say": "twinkle",
+          "text": "I fell... I fell all the way down. And now I can't get back home.",
+          "cam": "twinkle",
+          "do": {
+            "twinkle": {
+              "emo": "sad"
+            }
+          }
+        },
+        {
+          "say": "pip",
+          "text": "Don't cry, little star! I'm Pip. I'll help you get home!",
+          "cam": "pip",
+          "do": {
+            "pip": {
+              "emo": "happy",
+              "gest": "hug"
+            }
+          }
+        },
+        {
+          "say": "twinkle",
+          "text": "Really? But the sky is so, so high...",
+          "do": {
+            "twinkle": {
+              "emo": "worried",
+              "look": "up"
+            }
+          }
+        },
+        {
+          "say": "pip",
+          "text": "Then we need a plan. And I know just who to ask!",
+          "cam": "wide",
+          "do": {
+            "pip": {
+              "emo": "determined",
+              "gest": "point"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "setting": {
+        "place": "forest",
+        "time": "night",
+        "seed": "path"
+      },
+      "chars": {
+        "pip": {
+          "x": 200,
+          "face": 1,
+          "emo": "determined"
+        },
+        "twinkle": {
+          "x": 60,
+          "y": 620,
+          "face": 1,
+          "emo": "worried",
+          "glow": 0.5
+        },
+        "hazel": {
+          "x": 2300,
+          "face": -1,
+          "emo": "neutral"
+        }
+      },
+      "beats": [
+        {
+          "do": {
+            "pip": {
+              "move": [760],
+              "time": 2.2
+            },
+            "twinkle": {
+              "move": [600, 620],
+              "time": 2.2
+            }
+          },
+          "wait": 1.4
+        },
+        {
+          "say": "narrator",
+          "text": "So Pip and the little star set off through the dark, dark woods.",
+          "do": {
+            "hazel": {
+              "move": [1250],
+              "time": 1.6
+            }
+          }
+        },
+        {
+          "say": "hazel",
+          "text": "Oh prickles! Pip, you scared my spikes straight!",
+          "sfx": ["pop"],
+          "cam": "hazel",
+          "do": {
+            "hazel": {
+              "emo": "scared",
+              "gest": "jump"
+            },
+            "pip": {
+              "emo": "surprised",
+              "look": "hazel"
+            }
+          }
+        },
+        {
+          "say": "pip",
+          "text": "Hazel! This is Twinkle. She fell all the way down from the sky!",
+          "cam": "wide",
+          "do": {
+            "pip": {
+              "emo": "excited",
+              "gest": "point"
+            }
+          }
+        },
+        {
+          "say": "hazel",
+          "text": "A real star? Wow... she's so sparkly!",
+          "do": {
+            "hazel": {
+              "emo": "surprised",
+              "look": "twinkle"
+            }
+          }
+        },
+        {
+          "say": "twinkle",
+          "text": "Hello, Hazel.",
+          "do": {
+            "twinkle": {
+              "emo": "happy"
+            }
+          }
+        },
+        {
+          "say": "hazel",
+          "text": "Let's ask Grandpa Ollie. He knows everything!",
+          "do": {
+            "hazel": {
+              "emo": "happy",
+              "gest": "cheer"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "setting": {
+        "place": "owltree",
+        "time": "night"
+      },
+      "chars": {
+        "pip": {
+          "x": 680,
+          "face": 1,
+          "emo": "determined"
+        },
+        "hazel": {
+          "x": 470,
+          "face": 1,
+          "emo": "neutral"
+        },
+        "twinkle": {
+          "x": 870,
+          "y": 600,
+          "face": 1,
+          "emo": "worried",
+          "glow": 0.5
+        },
+        "ollie": {
+          "x": 1240,
+          "face": -1,
+          "emo": "sleepy"
+        }
+      },
+      "beats": [
+        {
+          "say": "pip",
+          "text": "Grandpa Ollie! Grandpa Ollie! We need your help!",
+          "do": {
+            "pip": {
+              "gest": "wave",
+              "emo": "excited"
+            }
+          }
+        },
+        {
+          "say": "ollie",
+          "text": "Hoo-hoo! What brings you out so late, little ones?",
+          "cam": "ollie",
+          "do": {
+            "ollie": {
+              "emo": "surprised",
+              "gest": "nod"
+            }
+          }
+        },
+        {
+          "say": "pip",
+          "text": "Twinkle fell from the sky, and she can't get back home!",
+          "cam": "wide",
+          "do": {
+            "pip": {
+              "emo": "worried"
+            }
+          }
+        },
+        {
+          "say": "ollie",
+          "text": "Hmm. A star shines brightest when its heart is full.",
+          "cam": "ollie",
+          "do": {
+            "ollie": {
+              "emo": "thinking",
+              "gest": "think",
+              "look": "up"
+            }
+          }
+        },
+        {
+          "say": "ollie",
+          "text": "Fill her heart with joy, and she will float all the way home.",
+          "do": {
+            "ollie": {
+              "emo": "happy",
+              "look": "twinkle"
+            }
+          }
+        },
+        {
+          "say": "hazel",
+          "text": "Fill her heart with joy? How do we do that?",
+          "cam": "wide",
+          "do": {
+            "hazel": {
+              "emo": "thinking",
+              "gest": "shrug"
+            }
+          }
+        },
+        {
+          "say": "ollie",
+          "text": "Hoo-hoo. That, my dears, is for you to discover.",
+          "do": {
+            "ollie": {
+              "emo": "proud",
+              "gest": "nod"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s05",
+      "setting": {
+        "place": "hilltop",
+        "time": "night"
+      },
+      "chars": {
+        "pip": {
+          "x": 740,
+          "face": 1,
+          "emo": "determined"
+        },
+        "hazel": {
+          "x": 430,
+          "face": 1,
+          "emo": "neutral"
+        },
+        "twinkle": {
+          "x": 1080,
+          "y": 620,
+          "face": -1,
+          "emo": "worried",
+          "glow": 0.5
+        }
+      },
+      "beats": [
+        {
+          "say": "pip",
+          "text": "This is the tallest hill in the woods. Maybe here, we're close enough to the sky!",
+          "do": {
+            "pip": {
+              "look": "up"
+            }
+          }
+        },
+        {
+          "say": "twinkle",
+          "text": "I'll try... Up, up, up!",
+          "cam": "twinkle",
+          "do": {
+            "twinkle": {
+              "move": [1080, 470],
+              "time": 1.0,
+              "emo": "determined"
+            }
+          }
+        },
+        {
+          "wait": 1.2,
+          "sfx": ["error"],
+          "do": {
+            "twinkle": {
+              "move": [1080, 640],
+              "time": 0.7,
+              "emo": "sad"
+            }
+          }
+        },
+        {
+          "say": "twinkle",
+          "text": "It's no use. I'm too heavy.",
+          "do": {
+            "twinkle": {
+              "emo": "sad"
+            }
+          }
+        },
+        {
+          "say": "hazel",
+          "text": "Wait! Let me show you how. Watch this... HUP!",
+          "cam": "hazel",
+          "do": {
+            "hazel": {
+              "emo": "determined",
+              "move": [520],
+              "time": 0.6
+            }
+          }
+        },
+        {
+          "wait": 1.4,
+          "sfx": ["pop"],
+          "do": {
+            "hazel": {
+              "gest": "jump",
+              "emo": "surprised"
+            }
+          }
+        },
+        {
+          "say": "hazel",
+          "text": "Oof! Hee hee... I don't think hedgehogs can fly.",
+          "do": {
+            "hazel": {
+              "emo": "happy",
+              "gest": "shrug"
+            }
+          }
+        },
+        {
+          "say": "twinkle",
+          "text": "Hee hee hee! You look so funny!",
+          "cam": "wide",
+          "sfx": ["sparkle"],
+          "do": {
+            "twinkle": {
+              "emo": "excited",
+              "glow": 1.0
+            }
+          },
+          "fx": [["sparkles", "twinkle", 1.4]]
+        },
+        {
+          "say": "pip",
+          "text": "Wait... Twinkle! You're glowing brighter!",
+          "do": {
+            "pip": {
+              "emo": "surprised",
+              "gest": "point",
+              "look": "twinkle"
+            }
+          }
+        },
+        {
+          "say": "hazel",
+          "text": "When you laughed! Joy makes you shine!",
+          "do": {
+            "hazel": {
+              "emo": "excited",
+              "gest": "cheer"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "setting": {
+        "place": "hilltop",
+        "time": "night"
+      },
+      "chars": {
+        "pip": {
+          "x": 740,
+          "face": 1,
+          "emo": "excited"
+        },
+        "hazel": {
+          "x": 430,
+          "face": 1,
+          "emo": "excited"
+        },
+        "twinkle": {
+          "x": 1080,
+          "y": 620,
+          "face": -1,
+          "emo": "happy",
+          "glow": 1.0
+        }
+      },
+      "beats": [
+        {
+          "say": "pip",
+          "text": "Then let's fill your heart all the way up! Ready, Hazel?",
+          "do": {
+            "pip": {
+              "gest": "bounce"
+            }
+          }
+        },
+        {
+          "say": "pip",
+          "text": "Twinkle, Twinkle, little star, you're our friend, that's what you are!",
+          "cam": "pip",
+          "do": {
+            "pip": {
+              "gest": "cheer",
+              "emo": "happy"
+            },
+            "hazel": {
+              "gest": "bounce"
+            }
+          }
+        },
+        {
+          "say": "hazel",
+          "text": "Up above the woods so high, go back home and light the sky!",
+          "cam": "hazel",
+          "do": {
+            "hazel": {
+              "gest": "cheer",
+              "emo": "happy"
+            },
+            "pip": {
+              "gest": "spin"
+            },
+            "twinkle": {
+              "glow": 1.4,
+              "emo": "excited"
+            }
+          },
+          "fx": [["sparkles", "twinkle", 1.4]]
+        },
+        {
+          "say": "twinkle",
+          "text": "I feel so light! I'm floating!",
+          "cam": "wide",
+          "sfx": ["chime"],
+          "do": {
+            "twinkle": {
+              "move": [1080, 380],
+              "time": 2.0,
+              "emo": "excited"
+            },
+            "pip": {
+              "look": "twinkle",
+              "emo": "surprised"
+            },
+            "hazel": {
+              "look": "twinkle",
+              "emo": "surprised"
+            }
+          },
+          "fx": [["trail", "twinkle", 2.0]]
+        },
+        {
+          "say": "twinkle",
+          "text": "Thank you, Pip! Thank you, Hazel! I'll never forget you!",
+          "do": {
+            "twinkle": {
+              "move": [1300, -350],
+              "time": 3.2
+            },
+            "pip": {
+              "emo": "happy",
+              "gest": "wave"
+            },
+            "hazel": {
+              "emo": "happy",
+              "gest": "wave"
+            }
+          },
+          "fx": [
+            ["trail", "twinkle", 3.2],
+            ["flash", 3.4]
+          ],
+          "wait": 3.4,
+          "sfx": ["sparkle"]
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "setting": {
+        "place": "burrow",
+        "time": "night"
+      },
+      "chars": {
+        "pip": {
+          "x": 800,
+          "face": 1,
+          "emo": "happy",
+          "look": "up"
+        },
+        "hazel": {
+          "x": 520,
+          "face": 1,
+          "emo": "sleepy",
+          "look": "up"
+        },
+        "twinkle": {
+          "x": 1250,
+          "y": 260,
+          "face": -1,
+          "emo": "happy",
+          "glow": 1.3,
+          "scale": 0.4
+        }
+      },
+      "beats": [
+        {
+          "say": "narrator",
+          "text": "And from that night on, whenever Pip looked up at the sky...",
+          "do": {
+            "twinkle": {
+              "gest": "bounce"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "one little star always twinkled back, just for him.",
+          "cam": "twinkle",
+          "sfx": ["chime"],
+          "fx": [["sparkles", "twinkle", 1.4]]
+        },
+        {
+          "say": "pip",
+          "text": "Goodnight, Twinkle.",
+          "cam": "pip",
+          "do": {
+            "pip": {
+              "emo": "sleepy",
+              "gest": "wave"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Because sometimes, the best way to help a friend... is to share a little joy.",
+          "cam": "wide",
+          "wait": 5.0
+        }
+      ]
+    }
+  ],
+  "shorts": [
+    {
+      "id": "short1",
+      "scenes": ["s01"],
+      "hook": "A STAR just fell into Pip's backyard!"
+    },
+    {
+      "id": "short2",
+      "scenes": ["s02"],
+      "hook": "The little star can't get home..."
+    },
+    {
+      "id": "short3",
+      "scenes": ["s03"],
+      "hook": "Hazel got SO scared!"
+    },
+    {
+      "id": "short4",
+      "scenes": ["s04"],
+      "hook": "The wise owl knows the secret..."
+    },
+    {
+      "id": "short5",
+      "scenes": ["s05"],
+      "hook": "Why is the star glowing brighter?!"
+    },
+    {
+      "id": "short6",
+      "scenes": ["s06"],
+      "hook": "This song made a star fly home"
+    }
+  ]
+}

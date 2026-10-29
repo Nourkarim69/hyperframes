@@ -1,0 +1,39 @@
+{
+  "series": "Pip & Friends",
+  "tagline": "Bedtime adventures in Whispering Woods",
+  "narrator": { "voice": "bf_emma", "speed": 0.92, "pitch": 0 },
+  "characters": {
+    "pip": {
+      "name": "Pip",
+      "species": "fox",
+      "scale": 1,
+      "voice": "af_sky",
+      "speed": 1.0,
+      "pitch": 3.5
+    },
+    "hazel": {
+      "name": "Hazel",
+      "species": "hedgehog",
+      "scale": 0.92,
+      "voice": "af_bella",
+      "speed": 1.05,
+      "pitch": 4.5
+    },
+    "ollie": {
+      "name": "Grandpa Ollie",
+      "species": "owl",
+      "scale": 1.08,
+      "voice": "bm_george",
+      "speed": 0.88,
+      "pitch": -1.5
+    },
+    "twinkle": {
+      "name": "Twinkle",
+      "species": "star",
+      "scale": 0.55,
+      "voice": "af_nicole",
+      "speed": 0.98,
+      "pitch": 6
+    }
+  }
+}
