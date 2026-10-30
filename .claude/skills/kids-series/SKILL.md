@@ -68,7 +68,9 @@ First time in a session: the SessionStart hook installs Kokoro; if `~/.cache/hyp
       ],
     },
   ],
-  "shorts": [{ "id": "short1", "scenes": ["s01"], "hook": "A STAR fell into Pip's garden!" }],
+  "shorts": [
+    { "id": "short1", "scenes": ["s01"], "from_beat": 2, "hook": "A STAR fell into Pip's garden!" },
+  ],
 }
 ```
 
@@ -77,6 +79,7 @@ First time in a session: the SessionStart hook installs Kokoro; if `~/.cache/hyp
 - **emo**: neutral, happy, excited, sad, scared, surprised, thinking, sleepy, determined, proud, worried.
 - **gest**: wave, cheer, hop, jump, point, think, shrug, hug, shake, nod, headshake, spin, bounce.
 - **do** keys: `emo`, `gest`, `look` (a character id, `up`, `down`, `left`, `right`), `face` (1 right / -1 left), `move` `[x]` or `[x, y]` (+ `time` s; walking characters face where they go), `glow` (stars), `at` (delay in s).
+- **Shorts**: `from_beat` opens the Short on that beat of its first scene (skip walk-ins and narration; the feed decides in 1 s). The first frame has no fade and already shows the hook.
 - **cam**: a character id = close-up, `wide` = back to the full shot. Use a close-up on emotional lines, `wide` on reactions.
 - **sfx**: names from `skills/media-use/audio/assets/sfx/manifest.json` (sparkle, chime, pop, whoosh-short, error ...).
 - Listeners automatically look at whoever talks. A beat lasts its line + 0.35 s, or `wait` if longer.

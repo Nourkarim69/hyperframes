@@ -129,8 +129,10 @@ def resolve_scene(scene, cast, voice_dir):
     lines, sfx, fx, cams = [], [], [], []
     t = LEAD_IN
     pos = {cid: [c["x"], c["y"]] for cid, c in chars.items()}
+    beat_starts = []
     for bi, beat in enumerate(scene["beats"]):
         start = t
+        beat_starts.append(start)
         length = 0.0
         speaker = beat.get("say")
         if speaker:
@@ -194,7 +196,7 @@ def resolve_scene(scene, cast, voice_dir):
     for c in chars.values():
         for k in ("emo", "face", "look", "glow", "gest", "moves"):
             c[k].sort(key=lambda k_: k_[0])
-    return {"id": scene["id"], "setting": scene["setting"], "chars": chars, "lines": lines, "sfx": sfx,
+    return {"id": scene["id"], "setting": scene["setting"], "chars": chars, "lines": lines, "sfx": sfx, "beat_starts": beat_starts,
             "fx": fx, "cams": cams, "dur": dur, "overlay": scene.get("overlay", [])}
 
 
@@ -288,9 +290,10 @@ SCENE_TMPL = """<template>
       const rig = KidsRig.mount(document.getElementById("{id}-stage"), D);
       const tl = gsap.timeline({{ paused: true }});
       const clock = {{ t: 0 }};
-      tl.to(clock, {{ t: D.dur, duration: D.dur, ease: "none", onUpdate: () => rig.render(clock.t) }}, 0);
+      // D.t0 skips the start of the scene (a Short that opens on the action)
+      tl.to(clock, {{ t: D.dur - D.t0, duration: D.dur - D.t0, ease: "none", onUpdate: () => rig.render(clock.t + D.t0) }}, 0);
 {tweens}
-      rig.render(0);
+      rig.render(D.t0);
       window.__timelines["{id}"] = tl;
     }})();
   </script>
@@ -318,18 +321,18 @@ def overlay_html(sid, items, W, H):
     return "\n".join(html), "\n".join(tw)
 
 
-def scene_data(sc, fmt, cam_keys):
+def scene_data(sc, fmt, cam_keys, t0=0.0, fade_in=0.4):
     chars = {}
     for cid, c in sc["chars"].items():
         chars[cid] = {k: c[k] for k in ("species", "scale", "x", "y", "moves", "emo", "face", "look", "gest", "mouth", "glow", "z")}
     return {
         "W": fmt["W"], "H": fmt["H"], "dur": sc["dur"], "setting": sc["setting"], "chars": chars,
-        "fx": sc["fx"], "cam": cam_keys, "fadeIn": 0.4, "fadeOut": 0.4,
+        "fx": sc["fx"], "cam": cam_keys, "fadeIn": fade_in, "fadeOut": 0.4, "t0": round(t0, 3),
     }
 
 
-def write_scene(project, sc, fmt, cam_keys, overlays=()):
-    data = scene_data(sc, fmt, cam_keys)
+def write_scene(project, sc, fmt, cam_keys, overlays=(), t0=0.0, fade_in=0.4):
+    data = scene_data(sc, fmt, cam_keys, t0, fade_in)
     ov_html, ov_tw = overlay_html(sc["id"], overlays, fmt["W"], fmt["H"])
     html = SCENE_TMPL.format(
         id=sc["id"], W=fmt["W"], H=fmt["H"], lib=LIB, data=json.dumps(data, separators=(",", ":")),
@@ -456,7 +459,7 @@ CAP_TMPL = """<template>
   </div>
   <script>
     const tl = gsap.timeline({{ paused: true }});
-    tl.fromTo("#cap-hook-pill", {{ scale: 0.3, rotation: -6, opacity: 0 }}, {{ scale: 1, rotation: -2, opacity: 1, duration: 0.5, ease: "back.out(2.4)" }}, 0.15);
+    tl.fromTo("#cap-hook-pill", {{ scale: 1.12, rotation: -4, opacity: 1 }}, {{ scale: 1, rotation: -2, opacity: 1, duration: 0.45, ease: "back.out(2.4)" }}, 0);
     tl.to("#cap-hook-pill", {{ rotation: 2, duration: 0.25, ease: "sine.inOut", yoyo: true, repeat: 3 }}, 0.7);
 {tweens}
     window.__timelines["captions"] = tl;
@@ -657,20 +660,24 @@ def main():
         new_project(sdir)
         hosts, audios, lines = [], [], []
         t = 0.0
-        for sid in sh["scenes"]:
+        for i, sid in enumerate(sh["scenes"]):
             sc = by_id[sid]
-            write_scene(sdir, sc, SHORT, cam_keys_short(sc))
-            hosts.append(host(sid, t, sc["dur"], SHORT, 1))
+            # The first scene can open on a later beat ("from_beat"): the feed decides in the first second.
+            off = max(0.0, sc["beat_starts"][sh["from_beat"]] - 0.2) if i == 0 and sh.get("from_beat") else 0.0
+            write_scene(sdir, sc, SHORT, cam_keys_short(sc), t0=off, fade_in=0 if i == 0 else 0.4)
+            hosts.append(host(sid, t, sc["dur"] - off, SHORT, 1))
             for ln in sc["lines"]:
+                if ln["start"] < off - 0.05:
+                    continue
                 src = copy_asset(sdir, ln["path"], "voice")
-                audios.append(audio_tag(f"v-{ln['id']}", src, t + ln["start"], ln["dur"], 1, 3))
-                lines.append(dict(ln, start=t + ln["start"]))
+                audios.append(audio_tag(f"v-{ln['id']}", src, t + ln["start"] - off, ln["dur"], 1, 3))
+                lines.append(dict(ln, start=t + ln["start"] - off))
             for k, s in enumerate(sc["sfx"]):
                 p = sfx_file(s["name"])
-                if p:
+                if p and s["start"] >= off - 0.05:
                     d = min(sf.info(p).duration, 4.0)
-                    audios.append(audio_tag(f"sfx-{sid}-{k}", copy_asset(sdir, p, "sfx"), t + s["start"], d, 0.35, 4 + k % 3))
-            t += sc["dur"]
+                    audios.append(audio_tag(f"sfx-{sid}-{k}", copy_asset(sdir, p, "sfx"), t + s["start"] - off, d, 0.35, 4 + k % 3))
+            t += sc["dur"] - off
         # end card: Pip waving + call to watch the episode
         end = resolve_scene({
             "id": "endcard", "setting": {"place": "burrow", "time": "night", "seed": "end"},

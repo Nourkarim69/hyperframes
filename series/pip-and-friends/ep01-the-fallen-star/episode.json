@@ -683,17 +683,20 @@
     {
       "id": "short1",
       "scenes": ["s01"],
-      "hook": "A STAR just fell into Pip's backyard!"
+      "hook": "A STAR just fell into Pip's backyard!",
+      "from_beat": 2
     },
     {
       "id": "short2",
       "scenes": ["s02"],
-      "hook": "The little star can't get home..."
+      "hook": "The little star can't get home...",
+      "from_beat": 1
     },
     {
       "id": "short3",
       "scenes": ["s03"],
-      "hook": "Hazel got SO scared!"
+      "hook": "Hazel got SO scared!",
+      "from_beat": 2
     },
     {
       "id": "short4",
