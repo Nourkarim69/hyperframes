@@ -133,6 +133,7 @@ packages/studio/data/
 !.claude/skills/captions-overlay
 !.claude/skills/oversized-cursor
 !.claude/skills/kids-series
+!.claude/skills/sensory-dance
 
 .agents/*
 !.agents/skills
@@ -208,3 +209,7 @@ __pycache__/
 series/*/*/build/
 series/*/*/out/
 series/*/music/*.wav
+
+# sensory-dance: generated projects and renders
+channels/*/*/
+!channels/*/README.md
