@@ -508,5 +508,7 @@ window.FruitDance =
       return { render };
     }
 
+    // shared with the kids-series rig, so story episodes reuse the same characters
+    window.FruitArt = { KINDS, gradDefs };
     return { mount, KINDS: Object.keys(KINDS) };
   })();

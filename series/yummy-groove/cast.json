@@ -1,0 +1,72 @@
+{
+  "series": "Yummy Groove",
+  "tagline": "Dancing fruits for babies & toddlers",
+  "about": "Strawberry, Orange, Banana, Apple, Blueberry and Grape learn colors, friendship and how to groove! Fun stories for toddlers and preschoolers.",
+  "main": ["strawberry", "banana", "blueberry"],
+  "home": {
+    "place": "kitchen",
+    "time": "day"
+  },
+  "music": "dance",
+  "narrator": {
+    "voice": "af_heart",
+    "speed": 0.95,
+    "pitch": 0
+  },
+  "characters": {
+    "strawberry": {
+      "name": "Strawberry",
+      "species": "fruit:strawberry",
+      "scale": 0.92,
+      "voice": "af_bella",
+      "speed": 1.0,
+      "pitch": 4,
+      "color": "#FF6B81"
+    },
+    "orange": {
+      "name": "Orange",
+      "species": "fruit:orange",
+      "scale": 0.9,
+      "voice": "am_puck",
+      "speed": 1.05,
+      "pitch": 3,
+      "color": "#FFA238"
+    },
+    "banana": {
+      "name": "Banana",
+      "species": "fruit:banana",
+      "scale": 0.9,
+      "voice": "am_echo",
+      "speed": 1.05,
+      "pitch": 4,
+      "color": "#FFE04D"
+    },
+    "apple": {
+      "name": "Apple",
+      "species": "fruit:apple",
+      "scale": 0.9,
+      "voice": "af_nova",
+      "speed": 1.0,
+      "pitch": 4,
+      "color": "#8BE04E"
+    },
+    "blueberry": {
+      "name": "Blueberry",
+      "species": "fruit:blueberry",
+      "scale": 0.72,
+      "voice": "af_sky",
+      "speed": 0.98,
+      "pitch": 6,
+      "color": "#8FA2FF"
+    },
+    "grape": {
+      "name": "Grape",
+      "species": "fruit:grape",
+      "scale": 0.9,
+      "voice": "af_jessica",
+      "speed": 1.05,
+      "pitch": 3,
+      "color": "#C68CFF"
+    }
+  }
+}

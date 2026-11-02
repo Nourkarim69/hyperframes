@@ -127,6 +127,7 @@ def resolve_scene(scene, cast, voice_dir):
             "z": c.get("z", 0),
         }
     lines, sfx, fx, cams = [], [], [], []
+    blend = [[0, scene["setting"]["blend0"]]] if "blend0" in scene["setting"] else []
     t = LEAD_IN
     pos = {cid: [c["x"], c["y"]] for cid, c in chars.items()}
     beat_starts = []
@@ -183,6 +184,8 @@ def resolve_scene(scene, cast, voice_dir):
                 fx.append([round(start + item[1], 3), "flash"])
             elif kind == "trail":
                 fx.append([round(start, 3), "trail", item[1], 0, item[2]])
+            elif kind == "sparkles_at":
+                fx.append([round(start + (item[4] if len(item) > 4 else 0), 3), "sparkles", item[1], item[2], item[3]])
             elif kind == "sparkles":
                 cid = item[1]
                 x, y = pos[cid]
@@ -190,13 +193,16 @@ def resolve_scene(scene, cast, voice_dir):
                 fx.append([round(start, 3), "sparkles", x, y - lift, item[2]])
         if "cam" in beat:
             cams.append([start, beat["cam"]])
+        if "blend" in beat:  # kitchen blender: number of rainbow layers
+            blend.append([round(start + beat.get("blend_at", 0.3), 3), beat["blend"]])
         length = max(length, beat.get("wait", 0))
         t = start + length
     dur = round(t + TAIL, 3)
     for c in chars.values():
         for k in ("emo", "face", "look", "glow", "gest", "moves"):
             c[k].sort(key=lambda k_: k_[0])
-    return {"id": scene["id"], "setting": scene["setting"], "chars": chars, "lines": lines, "sfx": sfx, "beat_starts": beat_starts,
+    setting = dict(scene["setting"], blend=blend) if blend else scene["setting"]
+    return {"id": scene["id"], "setting": setting, "chars": chars, "lines": lines, "sfx": sfx, "beat_starts": beat_starts,
             "fx": fx, "cams": cams, "dur": dur, "overlay": scene.get("overlay", [])}
 
 
@@ -268,6 +274,8 @@ def cam_keys_short(sc):
 
 # ---------------------------------------------------------------- html
 LIB = open(os.path.join(HERE, "kidsrig.js")).read()
+MUSIC_STYLE = "lullaby"  # cast.json "music": "lullaby" (music.py) or "dance" (sensory-dance/dance_music.py)
+FRUIT_ART = os.path.normpath(os.path.join(HERE, "../../sensory-dance/scripts/fruits.js"))
 
 SCENE_TMPL = """<template>
   <style>
@@ -398,7 +406,11 @@ def music_bed(series_dir, length, out):
         # the theme is synthesised deterministically, so it is rebuilt rather than committed
         src = os.path.join(series_dir, "music", "bed.wav")
         os.makedirs(os.path.dirname(src), exist_ok=True)
-        subprocess.run([sys.executable, os.path.join(HERE, "music.py"), src], check=True)
+        if MUSIC_STYLE == "dance":
+            gen = [os.path.join(HERE, "../../sensory-dance/scripts/dance_music.py"), src, "--seconds", "300"]
+        else:
+            gen = [os.path.join(HERE, "music.py"), src]
+        subprocess.run([sys.executable, *gen], check=True)
     x, sr = wav_info(src)
     need = int((length + 0.5) * sr)
     xf = int(1.5 * sr)
@@ -574,11 +586,19 @@ def main():
     voice_dir = os.path.join(build, "voice-cache")
     os.makedirs(voice_dir, exist_ok=True)
     series = cast["series"]
-    main_cast = [c for c in ("pip", "hazel", "ollie") if c in cast["characters"]]
+    main_cast = cast.get("main") or [c for c in ("pip", "hazel", "ollie") if c in cast["characters"]]
+    home = cast.get("home", {"place": "burrow", "time": "night"})
+    global LIB, MUSIC_STYLE
+    MUSIC_STYLE = cast.get("music", "lullaby")
+    if any(c["species"].startswith("fruit:") for c in cast["characters"].values()):
+        LIB = open(FRUIT_ART).read() + "\n" + LIB
+    for cid, c in cast["characters"].items():
+        if c.get("color"):
+            WHO_COLOR[cid] = c["color"]
 
     # intro + outro are ordinary rig scenes with title overlays
     intro = {
-        "id": "intro", "setting": {"place": "burrow", "time": "night", "seed": "intro"},
+        "id": "intro", "setting": dict(home, seed="intro"),
         "chars": {cid: {"x": 620 + i * 340, "face": 1 if i < 1 else -1, "emo": "happy"} for i, cid in enumerate(main_cast)},
         "beats": [
             {"wait": 1.2},
@@ -588,7 +608,7 @@ def main():
         ],
     }
     outro = {
-        "id": "outro", "setting": {"place": "burrow", "time": "night", "seed": "outro"},
+        "id": "outro", "setting": dict(home, seed="outro"),
         "chars": {cid: {"x": 620 + i * 340, "face": 1 if i < 1 else -1, "emo": "happy"} for i, cid in enumerate(main_cast)},
         "beats": [
             {"say": "narrator", "text": "The End.", "do": {cid: {"gest": "wave", "at": 0.15 * i} for i, cid in enumerate(main_cast)}, "sfx": ["chime"]},
@@ -649,7 +669,7 @@ def main():
             "file": "out/long.mp4", "subtitles": "out/long.srt", "duration_s": round(total, 1),
             "title": f"{ep['title']} | {series} | Bedtime Stories for Kids",
             "description": f"{ep['title']} - Episode {ep['number']} of {series}. {ep.get('lesson', '')}\n\n"
-                           f"Join Pip the little fox and friends for gentle bedtime adventures in Whispering Woods.\n\n#kids #bedtimestories #cartoon",
+                           f"{cast.get('about', 'Join Pip the little fox and friends for gentle bedtime adventures in Whispering Woods.')}\n\n#kids #bedtimestories #cartoon",
             "tags": ["kids story", "bedtime story", "cartoon for kids", "story for toddlers", series, ep["title"]],
             "made_for_kids": True,
         },
@@ -664,7 +684,12 @@ def main():
             sc = by_id[sid]
             # The first scene can open on a later beat ("from_beat"): the feed decides in the first second.
             off = max(0.0, sc["beat_starts"][sh["from_beat"]] - 0.2) if i == 0 and sh.get("from_beat") else 0.0
-            write_scene(sdir, sc, SHORT, cam_keys_short(sc), t0=off, fade_in=0 if i == 0 else 0.4)
+            if sh.get("cam_x"):  # a fixed frame on a prop (e.g. the blender) instead of following the speaker
+                cy0 = GROUND - (SHORT["groundY"] - SHORT["H"] / 2) / SHORT["zoom"]
+                skeys = [[0, sh["cam_x"], round(cy0, 1), SHORT["zoom"], 0]]
+            else:
+                skeys = cam_keys_short(sc)
+            write_scene(sdir, sc, SHORT, skeys, t0=off, fade_in=0 if i == 0 else 0.4)
             hosts.append(host(sid, t, sc["dur"] - off, SHORT, 1))
             for ln in sc["lines"]:
                 if ln["start"] < off - 0.05:
@@ -680,9 +705,9 @@ def main():
             t += sc["dur"] - off
         # end card: Pip waving + call to watch the episode
         end = resolve_scene({
-            "id": "endcard", "setting": {"place": "burrow", "time": "night", "seed": "end"},
-            "chars": {"pip": {"x": 960, "face": 1, "emo": "excited"}},
-            "beats": [{"wait": 3.2, "do": {"pip": {"gest": "wave"}}}],
+            "id": "endcard", "setting": dict(home, seed="end"),
+            "chars": {main_cast[0]: {"x": 960, "face": 1, "emo": "excited"}},
+            "beats": [{"wait": 3.2, "do": {main_cast[0]: {"gest": "wave"}}}],
         }, cast, os.path.join(build, "voice-cache"))
         endcam = [[0, 960, GROUND - (SHORT["groundY"] - SHORT["H"] / 2) / SHORT["zoom"], SHORT["zoom"], 0]]
         write_scene(sdir, end, SHORT, endcam, [

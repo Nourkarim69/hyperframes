@@ -1,0 +1,993 @@
+{
+  "number": 1,
+  "title": "The Rainbow Smoothie",
+  "lesson": "Every color counts: together we make something beautiful.",
+  "next": "Next time on Yummy Groove: the veggies want to dance too!",
+  "scenes": [
+    {
+      "id": "s01",
+      "setting": {
+        "place": "kitchen",
+        "time": "day",
+        "blend0": 0
+      },
+      "chars": {
+        "strawberry": {
+          "x": 760,
+          "face": 1,
+          "emo": "happy"
+        }
+      },
+      "beats": [
+        {
+          "say": "narrator",
+          "text": "In a sunny little kitchen lived the fruit friends. And today was a very special day!",
+          "do": {
+            "strawberry": {
+              "gest": "bounce"
+            }
+          }
+        },
+        {
+          "say": "strawberry",
+          "text": "Today we're making... a RAINBOW smoothie!",
+          "cam": "strawberry",
+          "sfx": ["sparkle"],
+          "do": {
+            "strawberry": {
+              "emo": "excited",
+              "gest": "jump"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "But a rainbow needs every color. Red, orange, yellow, green, blue and purple!",
+          "cam": "wide",
+          "do": {
+            "strawberry": {
+              "emo": "thinking",
+              "look": "right",
+              "gest": "think"
+            }
+          }
+        },
+        {
+          "say": "strawberry",
+          "text": "I'm red! Red goes in first!",
+          "blend": 1,
+          "blend_at": 1.0,
+          "sfx": ["pop"],
+          "do": {
+            "strawberry": {
+              "emo": "proud",
+              "gest": "hop",
+              "look": "right"
+            }
+          },
+          "fx": [["sparkles_at", 1600, 640, 1.2, 1.0]]
+        },
+        {
+          "say": "narrator",
+          "text": "Red! Can you say red?",
+          "wait": 3.2,
+          "do": {
+            "strawberry": {
+              "emo": "happy",
+              "look": "cam"
+            }
+          }
+        },
+        {
+          "say": "strawberry",
+          "text": "Now let's find our friends!",
+          "do": {
+            "strawberry": {
+              "emo": "determined",
+              "gest": "point"
+            }
+          }
+        },
+        {
+          "wait": 1.6,
+          "do": {
+            "strawberry": {
+              "move": [2300],
+              "time": 1.8
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "setting": {
+        "place": "forest",
+        "time": "day",
+        "seed": "orchard"
+      },
+      "chars": {
+        "strawberry": {
+          "x": -250,
+          "face": 1,
+          "emo": "happy"
+        },
+        "orange": {
+          "x": 2250,
+          "face": -1,
+          "emo": "excited"
+        }
+      },
+      "beats": [
+        {
+          "wait": 1.6,
+          "do": {
+            "strawberry": {
+              "move": [700],
+              "time": 1.8
+            }
+          }
+        },
+        {
+          "say": "orange",
+          "text": "Boing! Boing! Did somebody say smoothie?",
+          "sfx": ["whoosh-short"],
+          "do": {
+            "orange": {
+              "move": [1180],
+              "time": 1.4,
+              "gest": "bounce"
+            },
+            "strawberry": {
+              "emo": "surprised",
+              "look": "orange"
+            }
+          }
+        },
+        {
+          "say": "orange",
+          "text": "I'm orange, and I love to bounce!",
+          "cam": "orange",
+          "do": {
+            "orange": {
+              "gest": "jump"
+            }
+          }
+        },
+        {
+          "say": "strawberry",
+          "text": "Orange! We need you for our rainbow smoothie!",
+          "cam": "wide",
+          "do": {
+            "strawberry": {
+              "emo": "excited",
+              "gest": "wave"
+            }
+          }
+        },
+        {
+          "say": "orange",
+          "text": "Yes, yes, yes! Let's go!",
+          "do": {
+            "orange": {
+              "emo": "excited",
+              "gest": "cheer"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Orange! Can you say orange?",
+          "wait": 3.2,
+          "do": {
+            "orange": {
+              "look": "cam",
+              "gest": "bounce"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "setting": {
+        "place": "forest",
+        "time": "day",
+        "seed": "banana"
+      },
+      "chars": {
+        "strawberry": {
+          "x": 480,
+          "face": 1,
+          "emo": "happy"
+        },
+        "orange": {
+          "x": 700,
+          "face": 1,
+          "emo": "happy"
+        },
+        "banana": {
+          "x": 1250,
+          "face": -1,
+          "emo": "happy"
+        }
+      },
+      "beats": [
+        {
+          "say": "banana",
+          "text": "Whoa! Whoa-oh-oh!",
+          "sfx": ["whoosh-short"],
+          "cam": "banana",
+          "do": {
+            "banana": {
+              "emo": "surprised",
+              "gest": "spin"
+            },
+            "strawberry": {
+              "emo": "surprised",
+              "look": "banana"
+            },
+            "orange": {
+              "emo": "surprised",
+              "look": "banana"
+            }
+          }
+        },
+        {
+          "wait": 1.0,
+          "sfx": ["pop"],
+          "do": {
+            "banana": {
+              "gest": "jump",
+              "emo": "scared"
+            }
+          }
+        },
+        {
+          "say": "banana",
+          "text": "Oops! Hi, friends! I'm yellow... and a little bit slippery!",
+          "do": {
+            "banana": {
+              "emo": "happy",
+              "gest": "shrug"
+            }
+          }
+        },
+        {
+          "say": "orange",
+          "text": "Ha ha ha! Silly Banana!",
+          "cam": "wide",
+          "do": {
+            "orange": {
+              "emo": "excited",
+              "gest": "bounce"
+            },
+            "strawberry": {
+              "emo": "happy"
+            }
+          }
+        },
+        {
+          "say": "strawberry",
+          "text": "Come with us, Banana! We need yellow!",
+          "do": {
+            "strawberry": {
+              "gest": "wave"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Yellow! Can you say yellow?",
+          "wait": 3.2,
+          "do": {
+            "banana": {
+              "look": "cam",
+              "gest": "wave"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "setting": {
+        "place": "forest",
+        "time": "day",
+        "seed": "apple"
+      },
+      "chars": {
+        "strawberry": {
+          "x": 420,
+          "face": 1,
+          "emo": "happy"
+        },
+        "orange": {
+          "x": 600,
+          "face": 1,
+          "emo": "happy"
+        },
+        "banana": {
+          "x": 780,
+          "face": 1,
+          "emo": "happy"
+        },
+        "apple": {
+          "x": 1280,
+          "face": -1,
+          "emo": "proud"
+        }
+      },
+      "beats": [
+        {
+          "say": "apple",
+          "text": "Ta-da! Green is the best color in the whole wide world!",
+          "cam": "apple",
+          "sfx": ["sparkle"],
+          "do": {
+            "apple": {
+              "gest": "cheer"
+            }
+          },
+          "fx": [["sparkles", "apple", 1.2]]
+        },
+        {
+          "say": "strawberry",
+          "text": "Apple! Will you be the green in our rainbow?",
+          "cam": "wide",
+          "do": {
+            "strawberry": {
+              "emo": "excited",
+              "gest": "point"
+            }
+          }
+        },
+        {
+          "say": "apple",
+          "text": "Count me in!",
+          "do": {
+            "apple": {
+              "emo": "excited",
+              "gest": "hop"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Green! Can you say green?",
+          "wait": 3.2,
+          "do": {
+            "apple": {
+              "look": "cam",
+              "gest": "wave"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s05",
+      "setting": {
+        "place": "pond",
+        "time": "day",
+        "seed": "blue"
+      },
+      "chars": {
+        "strawberry": {
+          "x": 300,
+          "face": 1,
+          "emo": "happy"
+        },
+        "orange": {
+          "x": 480,
+          "face": 1,
+          "emo": "happy"
+        },
+        "apple": {
+          "x": 660,
+          "face": 1,
+          "emo": "happy"
+        },
+        "blueberry": {
+          "x": 1150,
+          "face": -1,
+          "emo": "sad",
+          "look": "down"
+        }
+      },
+      "beats": [
+        {
+          "say": "narrator",
+          "text": "But by the pond, somebody was feeling sad.",
+          "cam": "blueberry",
+          "do": {
+            "blueberry": {
+              "emo": "sad"
+            }
+          }
+        },
+        {
+          "say": "blueberry",
+          "text": "I'm so small... Nobody needs a tiny blueberry.",
+          "do": {
+            "blueberry": {
+              "emo": "sad"
+            }
+          }
+        },
+        {
+          "say": "strawberry",
+          "text": "That's not true! Without blue, there's no rainbow!",
+          "cam": "wide",
+          "do": {
+            "strawberry": {
+              "emo": "determined",
+              "move": [820],
+              "time": 1.2
+            }
+          }
+        },
+        {
+          "say": "orange",
+          "text": "Every color counts, big or small!",
+          "do": {
+            "orange": {
+              "emo": "happy",
+              "gest": "cheer"
+            }
+          }
+        },
+        {
+          "say": "blueberry",
+          "text": "Really? Then... let's go!",
+          "cam": "blueberry",
+          "sfx": ["chime"],
+          "do": {
+            "blueberry": {
+              "emo": "excited",
+              "gest": "jump",
+              "look": "strawberry"
+            }
+          },
+          "fx": [["sparkles", "blueberry", 1.2]]
+        },
+        {
+          "say": "narrator",
+          "text": "Blue! Can you say blue?",
+          "cam": "wide",
+          "wait": 3.2,
+          "do": {
+            "blueberry": {
+              "look": "cam",
+              "gest": "bounce"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s06",
+      "setting": {
+        "place": "forest",
+        "time": "day",
+        "seed": "grape"
+      },
+      "chars": {
+        "strawberry": {
+          "x": 300,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.78
+        },
+        "orange": {
+          "x": 480,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.78
+        },
+        "banana": {
+          "x": 660,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.78
+        },
+        "apple": {
+          "x": 840,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.78
+        },
+        "blueberry": {
+          "x": 1010,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.62
+        },
+        "grape": {
+          "x": 2300,
+          "face": -1,
+          "emo": "worried"
+        }
+      },
+      "beats": [
+        {
+          "say": "grape",
+          "text": "Wait for me! Wait for me!",
+          "sfx": ["whoosh-short"],
+          "do": {
+            "grape": {
+              "move": [1320],
+              "time": 1.6
+            },
+            "strawberry": {
+              "look": "grape",
+              "emo": "surprised"
+            },
+            "blueberry": {
+              "look": "grape"
+            }
+          }
+        },
+        {
+          "say": "grape",
+          "text": "Purple is here! You can't make a rainbow without me!",
+          "cam": "grape",
+          "do": {
+            "grape": {
+              "emo": "excited",
+              "gest": "cheer"
+            }
+          }
+        },
+        {
+          "say": "strawberry",
+          "text": "Purple! Now we have every color!",
+          "cam": "wide",
+          "sfx": ["sparkle"],
+          "do": {
+            "strawberry": {
+              "emo": "excited",
+              "gest": "jump"
+            },
+            "orange": {
+              "gest": "cheer"
+            },
+            "banana": {
+              "gest": "bounce"
+            },
+            "apple": {
+              "gest": "cheer"
+            },
+            "blueberry": {
+              "gest": "jump"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Purple! Can you say purple?",
+          "wait": 3.2,
+          "do": {
+            "grape": {
+              "look": "cam",
+              "gest": "wave"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s07",
+      "setting": {
+        "place": "kitchen",
+        "time": "day",
+        "blend0": 1
+      },
+      "chars": {
+        "strawberry": {
+          "x": 330,
+          "face": 1,
+          "emo": "excited",
+          "scale": 0.74
+        },
+        "orange": {
+          "x": 520,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.72
+        },
+        "banana": {
+          "x": 710,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.72
+        },
+        "apple": {
+          "x": 900,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.72
+        },
+        "blueberry": {
+          "x": 1075,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.6
+        },
+        "grape": {
+          "x": 1260,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.72
+        }
+      },
+      "beats": [
+        {
+          "say": "strawberry",
+          "text": "Everybody in the blender! One, two, three!",
+          "do": {
+            "strawberry": {
+              "gest": "point",
+              "look": "right"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Orange!",
+          "blend": 2,
+          "sfx": ["pop"],
+          "do": {
+            "orange": {
+              "gest": "hop"
+            }
+          },
+          "fx": [["sparkles_at", 1600, 680, 0.9]]
+        },
+        {
+          "say": "narrator",
+          "text": "Yellow!",
+          "blend": 3,
+          "sfx": ["pop"],
+          "do": {
+            "banana": {
+              "gest": "hop"
+            }
+          },
+          "fx": [["sparkles_at", 1600, 620, 0.9]]
+        },
+        {
+          "say": "narrator",
+          "text": "Green!",
+          "blend": 4,
+          "sfx": ["pop"],
+          "do": {
+            "apple": {
+              "gest": "hop"
+            }
+          },
+          "fx": [["sparkles_at", 1600, 560, 0.9]]
+        },
+        {
+          "say": "narrator",
+          "text": "Blue!",
+          "blend": 5,
+          "sfx": ["pop"],
+          "do": {
+            "blueberry": {
+              "gest": "hop"
+            }
+          },
+          "fx": [["sparkles_at", 1600, 500, 0.9]]
+        },
+        {
+          "say": "narrator",
+          "text": "And purple!",
+          "blend": 6,
+          "sfx": ["pop"],
+          "do": {
+            "grape": {
+              "gest": "hop"
+            }
+          },
+          "fx": [["sparkles_at", 1600, 440, 0.9]]
+        },
+        {
+          "say": "strawberry",
+          "text": "A RAINBOW SMOOTHIE!",
+          "sfx": ["chime"],
+          "fx": [
+            ["flash", 0.1],
+            ["sparkles_at", 1600, 520, 1.6],
+            ["sparkles_at", 800, 520, 1.6]
+          ],
+          "do": {
+            "strawberry": {
+              "gest": "cheer",
+              "emo": "excited"
+            },
+            "orange": {
+              "gest": "cheer",
+              "emo": "excited"
+            },
+            "banana": {
+              "gest": "jump",
+              "emo": "excited"
+            },
+            "apple": {
+              "gest": "cheer",
+              "emo": "excited"
+            },
+            "blueberry": {
+              "gest": "jump",
+              "emo": "excited"
+            },
+            "grape": {
+              "gest": "cheer",
+              "emo": "excited"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "When every color comes together, we make something beautiful.",
+          "do": {
+            "strawberry": {
+              "emo": "proud"
+            },
+            "blueberry": {
+              "emo": "proud"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s08",
+      "setting": {
+        "place": "kitchen",
+        "time": "day",
+        "blend0": 6,
+        "seed": "party"
+      },
+      "chars": {
+        "strawberry": {
+          "x": 330,
+          "face": 1,
+          "emo": "excited",
+          "scale": 0.74
+        },
+        "orange": {
+          "x": 520,
+          "face": 1,
+          "emo": "excited",
+          "scale": 0.72
+        },
+        "banana": {
+          "x": 710,
+          "face": 1,
+          "emo": "excited",
+          "scale": 0.72
+        },
+        "apple": {
+          "x": 900,
+          "face": 1,
+          "emo": "excited",
+          "scale": 0.72
+        },
+        "blueberry": {
+          "x": 1075,
+          "face": 1,
+          "emo": "excited",
+          "scale": 0.6
+        },
+        "grape": {
+          "x": 1260,
+          "face": 1,
+          "emo": "excited",
+          "scale": 0.72
+        }
+      },
+      "beats": [
+        {
+          "say": "strawberry",
+          "text": "Rainbow party! Let's dance!",
+          "sfx": ["sparkle"],
+          "do": {
+            "strawberry": {
+              "gest": "jump",
+              "look": "cam"
+            }
+          }
+        },
+        {
+          "wait": 2.0,
+          "do": {
+            "strawberry": {
+              "gest": "bounce"
+            },
+            "orange": {
+              "gest": "bounce",
+              "at": 0.25
+            },
+            "banana": {
+              "gest": "bounce"
+            },
+            "apple": {
+              "gest": "bounce",
+              "at": 0.25
+            },
+            "blueberry": {
+              "gest": "bounce"
+            },
+            "grape": {
+              "gest": "bounce",
+              "at": 0.25
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Jump, jump, jump!",
+          "do": {
+            "strawberry": {
+              "gest": "jump"
+            },
+            "orange": {
+              "gest": "jump",
+              "at": 0.15
+            },
+            "banana": {
+              "gest": "jump",
+              "at": 0.3
+            },
+            "apple": {
+              "gest": "jump",
+              "at": 0.45
+            },
+            "blueberry": {
+              "gest": "jump",
+              "at": 0.6
+            },
+            "grape": {
+              "gest": "jump",
+              "at": 0.75
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Spin around!",
+          "sfx": ["whoosh-short"],
+          "do": {
+            "strawberry": {
+              "gest": "spin"
+            },
+            "orange": {
+              "gest": "spin"
+            },
+            "banana": {
+              "gest": "spin"
+            },
+            "apple": {
+              "gest": "spin"
+            },
+            "blueberry": {
+              "gest": "spin"
+            },
+            "grape": {
+              "gest": "spin"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Hands up high!",
+          "do": {
+            "strawberry": {
+              "gest": "cheer"
+            },
+            "orange": {
+              "gest": "cheer"
+            },
+            "banana": {
+              "gest": "cheer"
+            },
+            "apple": {
+              "gest": "cheer"
+            },
+            "blueberry": {
+              "gest": "cheer"
+            },
+            "grape": {
+              "gest": "cheer"
+            }
+          }
+        },
+        {
+          "wait": 2.4,
+          "fx": [
+            ["sparkles_at", 500, 450, 1.6],
+            ["sparkles_at", 1100, 450, 1.6]
+          ],
+          "do": {
+            "strawberry": {
+              "gest": "bounce"
+            },
+            "orange": {
+              "gest": "shake"
+            },
+            "banana": {
+              "gest": "bounce"
+            },
+            "apple": {
+              "gest": "shake"
+            },
+            "blueberry": {
+              "gest": "bounce"
+            },
+            "grape": {
+              "gest": "shake"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "And wave hello to your friends!",
+          "do": {
+            "strawberry": {
+              "gest": "wave"
+            },
+            "orange": {
+              "gest": "wave"
+            },
+            "banana": {
+              "gest": "wave"
+            },
+            "apple": {
+              "gest": "wave"
+            },
+            "blueberry": {
+              "gest": "wave"
+            },
+            "grape": {
+              "gest": "wave"
+            }
+          }
+        },
+        {
+          "wait": 1.0
+        }
+      ]
+    }
+  ],
+  "shorts": [
+    {
+      "id": "short1",
+      "scenes": ["s01"],
+      "from_beat": 1,
+      "hook": "Can you make a RAINBOW smoothie?"
+    },
+    {
+      "id": "short2",
+      "scenes": ["s03"],
+      "hook": "Banana is TOO slippery!"
+    },
+    {
+      "id": "short3",
+      "scenes": ["s05"],
+      "hook": "Nobody needs a tiny blueberry...?"
+    },
+    {
+      "id": "short4",
+      "scenes": ["s07"],
+      "hook": "Watch it turn RAINBOW!",
+      "cam_x": 1400
+    },
+    {
+      "id": "short5",
+      "scenes": ["s08"],
+      "hook": "Can you dance like the fruits?"
+    }
+  ]
+}

@@ -80,6 +80,9 @@ First time in a session: the SessionStart hook installs Kokoro; if `~/.cache/hyp
 - **gest**: wave, cheer, hop, jump, point, think, shrug, hug, shake, nod, headshake, spin, bounce.
 - **do** keys: `emo`, `gest`, `look` (a character id, `up`, `down`, `left`, `right`), `face` (1 right / -1 left), `move` `[x]` or `[x, y]` (+ `time` s; walking characters face where they go), `glow` (stars), `at` (delay in s).
 - **Shorts**: `from_beat` opens the Short on that beat of its first scene (skip walk-ins and narration; the feed decides in 1 s). The first frame has no fade and already shows the hook.
+- **Shorts** `cam_x`: hold the vertical frame on a world x (a prop such as the blender) instead of following the speaker.
+- **Kitchen**: `place: "kitchen"` has a blender; `setting.blend0` and a beat's `"blend": n` fill its rainbow layers. `fx` `["sparkles_at", x, y, dur]` sparkles a point.
+- **Fruit cast**: species `fruit:<kind>` reuses the sensory-dance characters; `cast.json` can set `main`, `home`, `about`, `music` (`dance` or `lullaby`) and a per-character subtitle `color`.
 - **cam**: a character id = close-up, `wide` = back to the full shot. Use a close-up on emotional lines, `wide` on reactions.
 - **sfx**: names from `skills/media-use/audio/assets/sfx/manifest.json` (sparkle, chime, pop, whoosh-short, error ...).
 - Listeners automatically look at whoever talks. A beat lasts its line + 0.35 s, or `wait` if longer.

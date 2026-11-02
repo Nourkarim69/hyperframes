@@ -379,9 +379,59 @@ window.KidsRig =
       },
     };
 
+    // Fruit characters ("fruit:<kind>") reuse the sensory-dance art (window.FruitArt, fruits.js):
+    // the whole fruit is the head, with stick arms and legs and the shared face rig.
+    function fruitSpecies(id, kind) {
+      const K = window.FruitArt.KINDS[kind];
+      const gid = `kr-fr-${id}`;
+      const BS = 0.82,
+        CY = -255;
+      const lx = (K.limbX || 128) * BS,
+        ly = CY + (K.limbY || 40) * BS,
+        legY = CY + 120 * BS;
+      const arm = (cls, x) =>
+        `<g class="${cls}" data-px="${f(x)}" data-py="${f(ly)}"><path d="M ${f(x)} ${f(ly)} L ${f(x)} ${f(ly + 72)}" stroke="${K.limb}" stroke-width="14" stroke-linecap="round"/>` +
+        `<circle cx="${f(x)}" cy="${f(ly + 78)}" r="17" fill="#fff"/></g>`;
+      const leg = (cls, x) =>
+        `<g class="${cls}"><path d="M ${x} ${f(legY)} L ${x} -16" stroke="${K.limb}" stroke-width="14" stroke-linecap="round"/>` +
+        `<ellipse cx="${x + Math.sign(x) * 8}" cy="-10" rx="27" ry="14" fill="#fff"/></g>`;
+      const fs = (K.face.s || 1) * BS,
+        fy = CY + K.face.y * BS;
+      const ey = fy - 18 * fs,
+        gap = 42 * fs;
+      const eye = (x, cls) =>
+        `<g class="${cls}" transform="translate(${f(x)},${f(ey)})"><g class="eyeS"><ellipse rx="${f(27 * fs)}" ry="${f(33 * fs)}" fill="#fff"/>` +
+        `<ellipse cx="2" cy="3" rx="${f(16 * fs)}" ry="${f(20 * fs)}" fill="#1A1020"/><circle cx="${f(7 * fs)}" cy="${f(-5 * fs)}" r="${f(7 * fs)}" fill="#fff"/></g></g>`;
+      return {
+        neck: CY + 140 * BS,
+        face: { ey, gap, my: fy + 30 * fs, mw: 28 * fs, browY: ey - 44 * fs, cheekY: fy + 26 * fs },
+        back: `<g class="tail" data-px="0" data-py="0"></g>`,
+        legs: leg("legL", -40) + leg("legR", 40),
+        armBack: arm("armB", -lx),
+        body: "",
+        armFront: arm("armF", lx),
+        ears: `<g class="earL" data-px="0" data-py="0"></g><g class="earR" data-px="0" data-py="0"></g>`,
+        head:
+          `<defs>${window.FruitArt.gradDefs(gid, K.c)}<radialGradient id="${gid}-sh"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient></defs>` +
+          `<g transform="translate(0,${CY}) scale(${BS})">${K.body(gid)}` +
+          (K.noShine
+            ? ""
+            : `<ellipse cx="-55" cy="-75" rx="42" ry="26" fill="url(#${gid}-sh)" transform="rotate(-30,-55,-75)"/>`) +
+          `</g>`,
+        eyes: eye(-gap, "eyeL") + eye(gap, "eyeR"),
+        extra: "",
+      };
+    }
+
     function buildCharacter(id, spec) {
-      const c = Object.assign({}, P[spec.species] || P.fox, spec.palette || {});
-      const s = SPECIES[spec.species](c);
+      const fruitKind = spec.species.startsWith("fruit:") ? spec.species.slice(6) : null;
+      const c = Object.assign(
+        {},
+        P[spec.species] || P.fox,
+        fruitKind ? { dark: "#3A0A12" } : {},
+        spec.palette || {},
+      );
+      const s = fruitKind ? fruitSpecies(id, fruitKind) : SPECIES[spec.species](c);
       const F = s.face;
       const g = document.createElementNS(NS, "g");
       g.setAttribute("class", "kr-char");
@@ -396,7 +446,7 @@ window.KidsRig =
         s.ears +
         s.head +
         cheeksSVG(F.gap + 28, F.cheekY) +
-        eyesSVG(c, F.ey, F.gap) +
+        (s.eyes || eyesSVG(c, F.ey, F.gap)) +
         browsSVG(c) +
         (F.beak
           ? `<g class="beak"><path d="M -18 -230 L 18 -230 L 0 -200 Z" fill="#E8A33D" stroke="${c.dark}" stroke-width="4" stroke-linejoin="round"/>` +
@@ -583,6 +633,65 @@ window.KidsRig =
       return `<path d="${d} L 4200 2400 Z" fill="${color}"/>`;
     }
 
+    // A bright kitchen: wall + window (far), counter + cabinets + blender (near).
+    // The blender jar holds six rainbow layers that setting.blend [[t, n]] fills over time.
+    function buildKitchen(setting, mk) {
+      const rnd = mulberry32(hash("kitchen" + (setting.seed || "")));
+      let far =
+        `<defs><linearGradient id="kr-kwin" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7CC7F2"/><stop offset="1" stop-color="#D4F1FF"/></linearGradient></defs>` +
+        `<rect x="-1400" y="-1400" width="5600" height="3800" fill="#FFF1D6"/>` +
+        `<rect x="610" y="90" width="700" height="460" rx="24" fill="url(#kr-kwin)" stroke="#FFFFFF" stroke-width="26"/>` +
+        `<path d="M 960 90 L 960 550 M 610 320 L 1310 320" stroke="#FFFFFF" stroke-width="18"/>` +
+        `<circle cx="1180" cy="190" r="55" fill="#FFF2A8"/>` +
+        `<g fill="#fff" opacity=".95"><ellipse cx="760" cy="200" rx="70" ry="26"/><ellipse cx="720" cy="186" rx="40" ry="28"/><ellipse cx="1060" cy="420" rx="80" ry="24"/></g>` +
+        `<path d="M 560 70 Q 600 330 540 600 L 610 600 L 610 70 Z M 1360 70 Q 1320 330 1380 600 L 1310 600 L 1310 70 Z" fill="#FF8FB1"/>`;
+      for (let y = 600; y < 860; y += 52)
+        for (let x = -1400; x < 4200; x += 52)
+          far += `<rect x="${x + 2}" y="${y + 2}" width="48" height="48" rx="6" fill="${(x / 52 + y / 52) % 2 ? "#CFF3E4" : "#E3FAF0"}"/>`;
+      for (const sx of [-700, 120, 1700, 2500]) {
+        far += `<rect x="${sx}" y="300" width="300" height="16" rx="6" fill="#C98B57"/>`;
+        for (let j = 0; j < 3; j++) {
+          const col = ["#FF7A90", "#FFC24D", "#7BD389", "#7DA7FF"][Math.floor(rnd() * 4)];
+          far += `<rect x="${sx + 20 + j * 95}" y="${200 + rnd() * 30}" width="70" height="${f(100 - rnd() * 30)}" rx="12" fill="${col}" opacity=".85"/>`;
+        }
+      }
+      const sk = mk(0.35, far);
+      // counter: top edge on the ground line, cabinets below; blender on the right
+      let near =
+        `<rect x="-1400" y="${GROUND}" width="5600" height="70" fill="#E7B47A"/><rect x="-1400" y="${GROUND}" width="5600" height="12" fill="#F6D2A2"/>` +
+        `<rect x="-1400" y="${GROUND + 70}" width="5600" height="1600" fill="#86CDB0"/>`;
+      for (let x = -1400; x < 4200; x += 300)
+        near += `<rect x="${x + 14}" y="${GROUND + 92}" width="272" height="380" rx="18" fill="#9EDBC2"/><circle cx="${x + 150}" cy="${GROUND + 140}" r="10" fill="#F6D2A2"/>`;
+      const bx = 1600,
+        jarTop = 380,
+        jarBot = GROUND - 95;
+      const jar = `M ${bx - 120} ${jarTop} L ${bx + 120} ${jarTop} L ${bx + 85} ${jarBot} L ${bx - 85} ${jarBot} Z`;
+      near +=
+        `<defs><clipPath id="kr-jar"><path d="${jar}"/></clipPath></defs>` +
+        `<path d="${jar}" fill="#DFF4FF" opacity=".55"/>` +
+        `<g class="kr-blend" clip-path="url(#kr-jar)"></g>` +
+        `<path d="${jar}" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linejoin="round"/>` +
+        `<path d="M ${bx - 80} ${jarTop + 30} L ${bx - 60} ${jarBot - 40}" stroke="#fff" stroke-width="12" stroke-linecap="round" opacity=".8"/>` +
+        `<rect x="${bx - 135}" y="${jarTop - 40}" width="270" height="44" rx="14" fill="#5B5F86"/>` +
+        `<rect x="${bx - 115}" y="${jarBot}" width="230" height="95" rx="24" fill="#5B5F86"/><circle cx="${bx}" cy="${jarBot + 48}" r="20" fill="#FF8FB1"/>`;
+      const nl = mk(1, near);
+      const g = nl.querySelector(".kr-blend");
+      const cols = ["#FF3355", "#FF8A00", "#FFD400", "#3FBF5A", "#4A63E0", "#A855F7"];
+      const h = (jarBot - jarTop - 30) / 6;
+      const blend = cols.map((c, i) => {
+        const r = document.createElementNS(NS, "rect");
+        r.setAttribute("x", bx - 130);
+        r.setAttribute("y", f(jarBot - (i + 1) * h));
+        r.setAttribute("width", 260);
+        r.setAttribute("height", f(h + 2));
+        r.setAttribute("fill", c);
+        r.setAttribute("opacity", "0");
+        g.appendChild(r);
+        return r;
+      });
+      return { layers: mk.layers, twinkles: [], clouds: null, flies: [], sky: sk, blend };
+    }
+
     function buildWorld(setting) {
       const time = setting.time || "day";
       const place = setting.place || "forest";
@@ -601,6 +710,8 @@ window.KidsRig =
         layers.push({ el: svg, depth });
         return svg;
       };
+      mk.layers = layers;
+      if (place === "kitchen") return buildKitchen(setting, mk);
       // sky
       let skyInner =
         `<defs><linearGradient id="kr-sky-${place}${time}" x1="0" y1="0" x2="0" y2="1">` +
@@ -726,6 +837,20 @@ window.KidsRig =
         return { host: h, depth: L.depth, el: L.el };
       });
       const tw = world.sky.querySelectorAll(".tw");
+      const blendAt = (t) => {
+        // number of rainbow layers in the blender, easing 0.5 s into each new level
+        let prev = 0,
+          cur = 0,
+          tk = -99;
+        for (const k of D.setting.blend || []) {
+          if (k[0] <= t) {
+            prev = cur;
+            cur = k[1];
+            tk = k[0];
+          } else break;
+        }
+        return lerp(prev, cur, ease(clamp((t - tk) / 0.5, 0, 1)));
+      };
 
       // character layer
       const svg = document.createElementNS(NS, "svg");
@@ -1017,6 +1142,10 @@ window.KidsRig =
           s.setAttribute("opacity", String(f(0.55 + 0.45 * Math.sin(t * 2.2 + world.twinkles[i])))),
         );
         if (world.clouds) world.clouds.setAttribute("transform", `translate(${f(t * 9)},0)`);
+        if (world.blend) {
+          const lv = blendAt(t);
+          world.blend.forEach((r, i) => r.setAttribute("opacity", String(f(clamp(lv - i, 0, 1)))));
+        }
         for (const fl of world.flies) {
           fl.el.setAttribute("cx", String(f(fl.x + Math.sin(t * fl.s + fl.p) * 70)));
           fl.el.setAttribute("cy", String(f(fl.y + Math.cos(t * fl.s * 1.3 + fl.p) * 40)));
@@ -1076,7 +1205,29 @@ window.KidsRig =
         if (D.fadeOut) v = Math.max(v, clamp((t - (D.dur - D.fadeOut)) / D.fadeOut, 0, 1));
         veil.style.opacity = String(f(v));
       }
+      scopeIds(stage, stage.id || "kr");
       return { render };
+    }
+
+    // Every scene of an episode lives in one page, so SVG ids (gradients, clip paths) would
+    // collide and url(#id) would resolve into another, hidden scene. Suffix them per stage.
+    function scopeIds(root, uid) {
+      const map = {};
+      root.querySelectorAll("[id]").forEach((el) => {
+        if (el === root) return;
+        const id = el.getAttribute("id");
+        map[id] = `${id}--${uid}`;
+        el.setAttribute("id", map[id]);
+      });
+      root.querySelectorAll("*").forEach((el) => {
+        for (const at of ["fill", "stroke", "clip-path", "mask", "filter"]) {
+          const v = el.getAttribute(at);
+          if (v && v.startsWith("url(#")) {
+            const id = v.slice(5, -1);
+            if (map[id]) el.setAttribute(at, `url(#${map[id]})`);
+          }
+        }
+      });
     }
 
     return { mount, EMO, GROUND };
