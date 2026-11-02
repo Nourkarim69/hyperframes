@@ -1,0 +1,635 @@
+{
+  "number": 2,
+  "title": "Five Little Fruits",
+  "lesson": "Counting down from five, and staying safe when we play.",
+  "next": "Next time on Yummy Groove: a game of hide and seek!",
+  "scenes": [
+    {
+      "id": "s01",
+      "setting": {
+        "place": "kitchen",
+        "time": "day",
+        "blend0": 0,
+        "seed": "five"
+      },
+      "chars": {
+        "strawberry": {
+          "x": 330,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.74
+        },
+        "orange": {
+          "x": 520,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.72
+        },
+        "banana": {
+          "x": 710,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.72
+        },
+        "apple": {
+          "x": 900,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.72
+        },
+        "blueberry": {
+          "x": 1080,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.6
+        },
+        "watermelon": {
+          "x": 1330,
+          "face": -1,
+          "emo": "happy",
+          "scale": 0.8
+        }
+      },
+      "beats": [
+        {
+          "say": "narrator",
+          "text": "Five little fruits were jumping on the counter. Let's count them!",
+          "do": {
+            "strawberry": {
+              "gest": "bounce",
+              "at": 0.0
+            },
+            "orange": {
+              "gest": "bounce",
+              "at": 0.1
+            },
+            "banana": {
+              "gest": "bounce",
+              "at": 0.2
+            },
+            "apple": {
+              "gest": "bounce",
+              "at": 0.30000000000000004
+            },
+            "blueberry": {
+              "gest": "bounce",
+              "at": 0.4
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "One, two, three, four, five!",
+          "do": {
+            "strawberry": {
+              "gest": "hop",
+              "at": 0.0
+            },
+            "orange": {
+              "gest": "hop",
+              "at": 0.55
+            },
+            "banana": {
+              "gest": "hop",
+              "at": 1.1
+            },
+            "apple": {
+              "gest": "hop",
+              "at": 1.6500000000000001
+            },
+            "blueberry": {
+              "gest": "hop",
+              "at": 2.2
+            }
+          },
+          "sfx": ["pop"]
+        },
+        {
+          "say": "narrator",
+          "text": "Five little fruits jumping on the counter!",
+          "do": {
+            "strawberry": {
+              "gest": "jump",
+              "at": 0.0,
+              "emo": "excited"
+            },
+            "orange": {
+              "gest": "jump",
+              "at": 0.12,
+              "emo": "excited"
+            },
+            "banana": {
+              "gest": "jump",
+              "at": 0.24,
+              "emo": "excited"
+            },
+            "apple": {
+              "gest": "jump",
+              "at": 0.36,
+              "emo": "excited"
+            },
+            "blueberry": {
+              "gest": "jump",
+              "at": 0.48,
+              "emo": "excited"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "One fell off and bumped their head!",
+          "sfx": ["whoosh-short"],
+          "do": {
+            "blueberry": {
+              "move": [1080, 1300],
+              "time": 0.7,
+              "emo": "surprised",
+              "at": 0.3
+            },
+            "strawberry": {
+              "emo": "surprised",
+              "look": "blueberry"
+            },
+            "orange": {
+              "emo": "surprised",
+              "look": "blueberry"
+            },
+            "banana": {
+              "emo": "surprised",
+              "look": "blueberry"
+            },
+            "apple": {
+              "emo": "surprised",
+              "look": "blueberry"
+            }
+          }
+        },
+        {
+          "say": "blueberry",
+          "text": "Ouch!",
+          "sfx": ["pop"]
+        },
+        {
+          "say": "narrator",
+          "text": "Mama Melon called the doctor, and the doctor said:",
+          "cam": "watermelon",
+          "do": {
+            "watermelon": {
+              "gest": "think",
+              "emo": "worried"
+            }
+          }
+        },
+        {
+          "say": "watermelon",
+          "text": "No more fruits jumping on the counter!",
+          "do": {
+            "watermelon": {
+              "gest": "headshake",
+              "emo": "determined"
+            }
+          }
+        },
+        {
+          "wait": 0.6,
+          "cam": "wide"
+        },
+        {
+          "say": "narrator",
+          "text": "Four little fruits jumping on the counter!",
+          "do": {
+            "strawberry": {
+              "gest": "jump",
+              "at": 0.0,
+              "emo": "excited"
+            },
+            "orange": {
+              "gest": "jump",
+              "at": 0.12,
+              "emo": "excited"
+            },
+            "banana": {
+              "gest": "jump",
+              "at": 0.24,
+              "emo": "excited"
+            },
+            "apple": {
+              "gest": "jump",
+              "at": 0.36,
+              "emo": "excited"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "One fell off and bumped their head!",
+          "sfx": ["whoosh-short"],
+          "do": {
+            "apple": {
+              "move": [900, 1300],
+              "time": 0.7,
+              "emo": "surprised",
+              "at": 0.3
+            },
+            "strawberry": {
+              "emo": "surprised",
+              "look": "apple"
+            },
+            "orange": {
+              "emo": "surprised",
+              "look": "apple"
+            },
+            "banana": {
+              "emo": "surprised",
+              "look": "apple"
+            }
+          }
+        },
+        {
+          "say": "apple",
+          "text": "Ouch!",
+          "sfx": ["pop"]
+        },
+        {
+          "say": "narrator",
+          "text": "Mama Melon called the doctor, and the doctor said:",
+          "cam": "watermelon",
+          "do": {
+            "watermelon": {
+              "gest": "think",
+              "emo": "worried"
+            }
+          }
+        },
+        {
+          "say": "watermelon",
+          "text": "No more fruits jumping on the counter!",
+          "do": {
+            "watermelon": {
+              "gest": "headshake",
+              "emo": "determined"
+            }
+          }
+        },
+        {
+          "wait": 0.6,
+          "cam": "wide"
+        },
+        {
+          "say": "narrator",
+          "text": "Three little fruits jumping on the counter!",
+          "do": {
+            "strawberry": {
+              "gest": "jump",
+              "at": 0.0,
+              "emo": "excited"
+            },
+            "orange": {
+              "gest": "jump",
+              "at": 0.12,
+              "emo": "excited"
+            },
+            "banana": {
+              "gest": "jump",
+              "at": 0.24,
+              "emo": "excited"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "One fell off and bumped their head!",
+          "sfx": ["whoosh-short"],
+          "do": {
+            "banana": {
+              "move": [710, 1300],
+              "time": 0.7,
+              "emo": "surprised",
+              "at": 0.3
+            },
+            "strawberry": {
+              "emo": "surprised",
+              "look": "banana"
+            },
+            "orange": {
+              "emo": "surprised",
+              "look": "banana"
+            }
+          }
+        },
+        {
+          "say": "banana",
+          "text": "Ouch!",
+          "sfx": ["pop"]
+        },
+        {
+          "say": "narrator",
+          "text": "Mama Melon called the doctor, and the doctor said:",
+          "cam": "watermelon",
+          "do": {
+            "watermelon": {
+              "gest": "think",
+              "emo": "worried"
+            }
+          }
+        },
+        {
+          "say": "watermelon",
+          "text": "No more fruits jumping on the counter!",
+          "do": {
+            "watermelon": {
+              "gest": "headshake",
+              "emo": "determined"
+            }
+          }
+        },
+        {
+          "wait": 0.6,
+          "cam": "wide"
+        },
+        {
+          "say": "narrator",
+          "text": "Two little fruits jumping on the counter!",
+          "do": {
+            "strawberry": {
+              "gest": "jump",
+              "at": 0.0,
+              "emo": "excited"
+            },
+            "orange": {
+              "gest": "jump",
+              "at": 0.12,
+              "emo": "excited"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "One fell off and bumped their head!",
+          "sfx": ["whoosh-short"],
+          "do": {
+            "orange": {
+              "move": [520, 1300],
+              "time": 0.7,
+              "emo": "surprised",
+              "at": 0.3
+            },
+            "strawberry": {
+              "emo": "surprised",
+              "look": "orange"
+            }
+          }
+        },
+        {
+          "say": "orange",
+          "text": "Ouch!",
+          "sfx": ["pop"]
+        },
+        {
+          "say": "narrator",
+          "text": "Mama Melon called the doctor, and the doctor said:",
+          "cam": "watermelon",
+          "do": {
+            "watermelon": {
+              "gest": "think",
+              "emo": "worried"
+            }
+          }
+        },
+        {
+          "say": "watermelon",
+          "text": "No more fruits jumping on the counter!",
+          "do": {
+            "watermelon": {
+              "gest": "headshake",
+              "emo": "determined"
+            }
+          }
+        },
+        {
+          "wait": 0.6,
+          "cam": "wide"
+        },
+        {
+          "say": "narrator",
+          "text": "One little fruit jumping on the counter!",
+          "do": {
+            "strawberry": {
+              "gest": "jump",
+              "at": 0.0,
+              "emo": "excited"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "One fell off and bumped their head!",
+          "sfx": ["whoosh-short"],
+          "do": {
+            "strawberry": {
+              "move": [330, 1300],
+              "time": 0.7,
+              "emo": "surprised",
+              "at": 0.3
+            }
+          }
+        },
+        {
+          "say": "strawberry",
+          "text": "Ouch!",
+          "sfx": ["pop"]
+        },
+        {
+          "say": "narrator",
+          "text": "Mama Melon called the doctor, and the doctor said:",
+          "cam": "watermelon",
+          "do": {
+            "watermelon": {
+              "gest": "think",
+              "emo": "worried"
+            }
+          }
+        },
+        {
+          "say": "watermelon",
+          "text": "No more fruits jumping on the counter!",
+          "do": {
+            "watermelon": {
+              "gest": "headshake",
+              "emo": "determined"
+            }
+          }
+        },
+        {
+          "wait": 0.6,
+          "cam": "wide"
+        },
+        {
+          "say": "narrator",
+          "text": "No little fruits jumping on the counter. Oh no! Where did everybody go?",
+          "do": {
+            "watermelon": {
+              "emo": "worried",
+              "look": "down"
+            }
+          }
+        },
+        {
+          "say": "strawberry",
+          "text": "Surprise! We're all okay!",
+          "sfx": ["sparkle"],
+          "do": {
+            "strawberry": {
+              "move": [330, 860],
+              "time": 0.8,
+              "gest": "jump",
+              "emo": "excited",
+              "at": 0.0
+            },
+            "orange": {
+              "move": [520, 860],
+              "time": 0.8,
+              "gest": "jump",
+              "emo": "excited",
+              "at": 0.15
+            },
+            "banana": {
+              "move": [710, 860],
+              "time": 0.8,
+              "gest": "jump",
+              "emo": "excited",
+              "at": 0.3
+            },
+            "apple": {
+              "move": [900, 860],
+              "time": 0.8,
+              "gest": "jump",
+              "emo": "excited",
+              "at": 0.44999999999999996
+            },
+            "blueberry": {
+              "move": [1080, 860],
+              "time": 0.8,
+              "gest": "jump",
+              "emo": "excited",
+              "at": 0.6
+            }
+          },
+          "fx": [["sparkles_at", 700, 600, 1.4, 0.6]]
+        },
+        {
+          "say": "watermelon",
+          "text": "Phew! Remember, little ones: we jump on the floor, not on the counter!",
+          "cam": "watermelon",
+          "do": {
+            "watermelon": {
+              "emo": "happy",
+              "gest": "point"
+            }
+          }
+        },
+        {
+          "say": "strawberry",
+          "text": "Okay, Mama Melon! Then let's dance instead!",
+          "cam": "wide",
+          "do": {
+            "strawberry": {
+              "gest": "cheer"
+            },
+            "watermelon": {
+              "emo": "excited"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Wiggle, wiggle, wiggle!",
+          "do": {
+            "strawberry": {
+              "gest": "shake"
+            },
+            "orange": {
+              "gest": "shake"
+            },
+            "banana": {
+              "gest": "shake"
+            },
+            "apple": {
+              "gest": "shake"
+            },
+            "blueberry": {
+              "gest": "shake"
+            },
+            "watermelon": {
+              "gest": "shake"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Spin around!",
+          "sfx": ["whoosh-short"],
+          "do": {
+            "strawberry": {
+              "gest": "spin"
+            },
+            "orange": {
+              "gest": "spin"
+            },
+            "banana": {
+              "gest": "spin"
+            },
+            "apple": {
+              "gest": "spin"
+            },
+            "blueberry": {
+              "gest": "spin"
+            },
+            "watermelon": {
+              "gest": "spin"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "And give a great big cheer!",
+          "sfx": ["chime"],
+          "do": {
+            "strawberry": {
+              "gest": "cheer"
+            },
+            "orange": {
+              "gest": "cheer"
+            },
+            "banana": {
+              "gest": "cheer"
+            },
+            "apple": {
+              "gest": "cheer"
+            },
+            "blueberry": {
+              "gest": "cheer"
+            },
+            "watermelon": {
+              "gest": "cheer"
+            }
+          },
+          "fx": [
+            ["sparkles_at", 500, 500, 1.6],
+            ["sparkles_at", 1100, 500, 1.6]
+          ]
+        },
+        {
+          "wait": 1.2
+        }
+      ]
+    }
+  ],
+  "shorts": [
+    {
+      "id": "short1",
+      "scenes": ["s01"],
+      "hook": "Five little fruits... uh oh!"
+    }
+  ]
+}

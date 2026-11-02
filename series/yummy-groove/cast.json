@@ -67,6 +67,15 @@
       "speed": 1.05,
       "pitch": 3,
       "color": "#C68CFF"
+    },
+    "watermelon": {
+      "name": "Mama Melon",
+      "species": "fruit:watermelon",
+      "scale": 0.85,
+      "voice": "af_sarah",
+      "speed": 0.95,
+      "pitch": 1,
+      "color": "#7EE07E"
     }
   }
 }

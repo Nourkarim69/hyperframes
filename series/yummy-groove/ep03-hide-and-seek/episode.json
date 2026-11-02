@@ -1,0 +1,257 @@
+{
+  "number": 3,
+  "title": "Hide and Seek",
+  "lesson": "Counting to five, and friends always look for each other.",
+  "next": "Next time on Yummy Groove: more fun with the fruit friends!",
+  "scenes": [
+    {
+      "id": "s01",
+      "setting": { "place": "forest", "time": "day", "seed": "meadow" },
+      "chars": {
+        "strawberry": { "x": 520, "face": 1, "emo": "happy", "scale": 0.85 },
+        "orange": { "x": 760, "face": -1, "emo": "happy", "scale": 0.82 },
+        "banana": { "x": 960, "face": -1, "emo": "happy", "scale": 0.82 },
+        "apple": { "x": 1160, "face": -1, "emo": "happy", "scale": 0.82 },
+        "blueberry": { "x": 1340, "face": -1, "emo": "happy", "scale": 0.66 }
+      },
+      "beats": [
+        {
+          "say": "narrator",
+          "text": "One sunny morning, the fruit friends were looking for a new game.",
+          "do": { "banana": { "gest": "bounce" }, "blueberry": { "gest": "bounce", "at": 0.3 } }
+        },
+        {
+          "say": "strawberry",
+          "text": "I know! Let's play hide and seek! I'll count, and you all hide!",
+          "cam": "strawberry",
+          "do": { "strawberry": { "emo": "excited", "gest": "jump" } }
+        },
+        {
+          "say": "orange",
+          "text": "Yay! Hide and seek!",
+          "cam": "wide",
+          "do": {
+            "orange": { "gest": "cheer", "emo": "excited" },
+            "banana": { "gest": "cheer" },
+            "apple": { "gest": "cheer" },
+            "blueberry": { "gest": "jump" }
+          }
+        },
+        {
+          "say": "strawberry",
+          "text": "Close your eyes and count with me!",
+          "do": { "strawberry": { "emo": "sleepy", "face": -1, "gest": "think" } }
+        },
+        {
+          "say": "narrator",
+          "text": "One...",
+          "do": { "orange": { "move": [-350], "time": 2.2 } },
+          "wait": 1.4
+        },
+        {
+          "say": "narrator",
+          "text": "Two...",
+          "do": { "banana": { "move": [2300], "time": 2.0 } },
+          "wait": 1.4
+        },
+        {
+          "say": "narrator",
+          "text": "Three...",
+          "do": { "apple": { "move": [-350], "time": 2.4 } },
+          "wait": 1.4
+        },
+        {
+          "say": "narrator",
+          "text": "Four...",
+          "do": { "blueberry": { "move": [2300], "time": 1.8 } },
+          "wait": 1.4
+        },
+        { "say": "narrator", "text": "Five!", "wait": 1.2 },
+        {
+          "say": "strawberry",
+          "text": "Ready or not, here I come!",
+          "cam": "strawberry",
+          "sfx": ["sparkle"],
+          "do": { "strawberry": { "emo": "excited", "face": 1, "gest": "jump" } }
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "setting": { "place": "forest", "time": "day", "seed": "woods" },
+      "chars": {
+        "strawberry": { "x": -250, "face": 1, "emo": "thinking", "scale": 0.85 },
+        "orange": { "x": 2300, "face": -1, "emo": "happy", "scale": 0.82 },
+        "banana": { "x": -400, "face": 1, "emo": "happy", "scale": 0.82 },
+        "apple": { "x": 2400, "face": -1, "emo": "happy", "scale": 0.82 }
+      },
+      "beats": [
+        { "wait": 1.8, "do": { "strawberry": { "move": [760], "time": 2.0 } } },
+        {
+          "say": "strawberry",
+          "text": "Hmm... Where is Orange?",
+          "do": { "strawberry": { "gest": "think", "look": "left" } }
+        },
+        {
+          "say": "narrator",
+          "text": "Can you see Orange? Look! Over there!",
+          "wait": 3.0,
+          "do": { "orange": { "move": [1560], "time": 1.0 }, "strawberry": { "look": "right" } }
+        },
+        {
+          "say": "orange",
+          "text": "Boing! You found me!",
+          "sfx": ["pop"],
+          "cam": "orange",
+          "do": { "orange": { "gest": "jump", "emo": "excited", "move": [1150], "time": 1.0 } }
+        },
+        {
+          "say": "strawberry",
+          "text": "I found you, Orange! That's one!",
+          "cam": "wide",
+          "do": { "strawberry": { "emo": "excited", "gest": "cheer" } }
+        },
+        {
+          "say": "strawberry",
+          "text": "Now, where is Banana?",
+          "do": { "strawberry": { "gest": "think", "look": "up" }, "orange": { "look": "left" } }
+        },
+        {
+          "say": "banana",
+          "text": "Whoa! Whoa-oh!",
+          "sfx": ["whoosh-short"],
+          "do": {
+            "banana": { "move": [380], "time": 1.0, "gest": "spin", "emo": "surprised" },
+            "strawberry": { "look": "banana", "emo": "surprised" }
+          }
+        },
+        {
+          "say": "banana",
+          "text": "Oops! I slipped right out of my hiding spot!",
+          "cam": "banana",
+          "do": { "banana": { "emo": "happy", "gest": "shrug" } }
+        },
+        {
+          "say": "strawberry",
+          "text": "Silly Banana! I found you! That's two!",
+          "cam": "wide",
+          "do": {
+            "strawberry": { "emo": "excited", "gest": "point" },
+            "orange": { "gest": "bounce" }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Where is Apple? Can you see a little green leaf?",
+          "wait": 3.0,
+          "do": { "apple": { "move": [1820], "time": 1.0 }, "strawberry": { "look": "right" } }
+        },
+        {
+          "say": "apple",
+          "text": "Ta-da! I was hiding behind the big tree!",
+          "sfx": ["sparkle"],
+          "cam": "apple",
+          "do": { "apple": { "move": [1400], "time": 1.0, "gest": "cheer", "emo": "proud" } }
+        },
+        {
+          "say": "strawberry",
+          "text": "I found you, Apple! That's three!",
+          "cam": "wide",
+          "do": { "strawberry": { "gest": "jump", "emo": "excited" } }
+        },
+        {
+          "say": "orange",
+          "text": "But wait... where is Blueberry?",
+          "do": {
+            "orange": { "emo": "worried", "look": "strawberry" },
+            "banana": { "emo": "worried" },
+            "apple": { "emo": "worried" },
+            "strawberry": { "emo": "worried" }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "setting": { "place": "pond", "time": "day", "seed": "seek" },
+      "chars": {
+        "strawberry": { "x": 330, "face": 1, "emo": "worried", "scale": 0.85 },
+        "orange": { "x": 520, "face": 1, "emo": "worried", "scale": 0.82 },
+        "banana": { "x": 700, "face": 1, "emo": "worried", "scale": 0.82 },
+        "apple": { "x": 880, "face": 1, "emo": "worried", "scale": 0.82 },
+        "blueberry": { "x": 2300, "face": -1, "emo": "happy", "scale": 0.66 }
+      },
+      "beats": [
+        {
+          "say": "narrator",
+          "text": "The friends looked high and low, but they couldn't find Blueberry anywhere.",
+          "do": { "strawberry": { "look": "up" }, "apple": { "look": "down" } }
+        },
+        {
+          "say": "strawberry",
+          "text": "Blueberry! Blueberry! Where are you?",
+          "cam": "strawberry",
+          "do": { "strawberry": { "gest": "wave", "emo": "worried" } }
+        },
+        {
+          "say": "banana",
+          "text": "He's so small, he could be anywhere!",
+          "cam": "wide",
+          "do": { "banana": { "gest": "shrug" } }
+        },
+        {
+          "say": "narrator",
+          "text": "Can you help them? Shout: Blueberry!",
+          "wait": 3.0,
+          "do": { "orange": { "look": "cam" } }
+        },
+        {
+          "say": "blueberry",
+          "text": "Hee hee hee! Here I am!",
+          "sfx": ["chime"],
+          "cam": "blueberry",
+          "do": {
+            "blueberry": { "move": [1180], "time": 1.2, "gest": "jump", "emo": "excited" },
+            "strawberry": { "emo": "surprised", "look": "blueberry" },
+            "orange": { "emo": "surprised", "look": "blueberry" },
+            "banana": { "emo": "surprised", "look": "blueberry" },
+            "apple": { "emo": "surprised", "look": "blueberry" }
+          },
+          "fx": [["sparkles", "blueberry", 1.2]]
+        },
+        {
+          "say": "blueberry",
+          "text": "Being small is GREAT for hide and seek!",
+          "do": { "blueberry": { "emo": "proud", "gest": "cheer" } }
+        },
+        {
+          "say": "strawberry",
+          "text": "We found you! That's four! Everybody's here!",
+          "cam": "wide",
+          "sfx": ["sparkle"],
+          "do": {
+            "strawberry": { "emo": "excited", "gest": "jump" },
+            "orange": { "emo": "excited", "gest": "cheer" },
+            "banana": { "emo": "excited", "gest": "cheer" },
+            "apple": { "emo": "excited", "gest": "cheer" }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Good friends always look for each other, and they never give up.",
+          "do": { "strawberry": { "emo": "proud" }, "blueberry": { "emo": "happy" } }
+        },
+        {
+          "say": "orange",
+          "text": "Again! Again! Let's play again!",
+          "do": {
+            "orange": { "gest": "bounce", "emo": "excited" },
+            "blueberry": { "gest": "bounce" }
+          }
+        },
+        { "wait": 1.2 }
+      ]
+    }
+  ],
+  "shorts": [{ "id": "short1", "scenes": ["s03"], "from_beat": 1, "hook": "Where is Blueberry?!" }]
+}
