@@ -118,6 +118,7 @@ def resolve_scene(scene, cast, voice_dir):
         spec = cast["characters"][cid]
         chars[cid] = {
             "species": spec["species"],
+            "palette": spec.get("palette", {}),
             "scale": c.get("scale", spec.get("scale", 1)),
             "x": c["x"],
             "y": c.get("y", GROUND),
@@ -332,7 +333,7 @@ def overlay_html(sid, items, W, H):
 def scene_data(sc, fmt, cam_keys, t0=0.0, fade_in=0.4):
     chars = {}
     for cid, c in sc["chars"].items():
-        chars[cid] = {k: c[k] for k in ("species", "scale", "x", "y", "moves", "emo", "face", "look", "gest", "mouth", "glow", "z")}
+        chars[cid] = {k: c[k] for k in ("species", "palette", "scale", "x", "y", "moves", "emo", "face", "look", "gest", "mouth", "glow", "z")}
     return {
         "W": fmt["W"], "H": fmt["H"], "dur": sc["dur"], "setting": sc["setting"], "chars": chars,
         "fx": sc["fx"], "cam": cam_keys, "fadeIn": fade_in, "fadeOut": 0.4, "t0": round(t0, 3),
@@ -387,7 +388,13 @@ def index_html(title, fmt, total, hosts, audios):
 """
 
 
+SERIES_SFX = None  # <series>/sfx: the show's own effects, checked before the bundled library
+
+
 def sfx_file(name):
+    for ext in (".wav", ".mp3"):
+        if SERIES_SFX and os.path.exists(os.path.join(SERIES_SFX, name + ext)):
+            return os.path.join(SERIES_SFX, name + ext)
     for ext in (".mp3", ".wav"):
         p = os.path.join(SFX_DIR, name + ext)
         if os.path.exists(p):
@@ -588,7 +595,8 @@ def main():
     series = cast["series"]
     main_cast = cast.get("main") or [c for c in ("pip", "hazel", "ollie") if c in cast["characters"]]
     home = cast.get("home", {"place": "burrow", "time": "night"})
-    global LIB, MUSIC_STYLE
+    global LIB, MUSIC_STYLE, SERIES_SFX
+    SERIES_SFX = os.path.join(series_dir, "sfx")
     MUSIC_STYLE = cast.get("music", "lullaby")
     if any(c["species"].startswith("fruit:") for c in cast["characters"].values()):
         LIB = open(FRUIT_ART).read() + "\n" + LIB

@@ -166,6 +166,14 @@ window.KidsRig =
     // ---------- character art (local coords: feet at 0,0, up is negative y) ----------
     // Each species returns layered SVG strings; the rig only touches the named groups.
     const P = {
+      cat: {
+        fur: "#B9BCC9",
+        furDark: "#8E92A3",
+        cream: "#FFFFFF",
+        dark: "#3A3346",
+        inner: "#F6B8C8",
+        accent: "#FF7FA0",
+      },
       fox: {
         fur: "#F28A2E",
         furDark: "#D9661A",
@@ -275,6 +283,40 @@ window.KidsRig =
             `<path d="M -118 -240 C -100 -195 -55 -175 0 -178 C 55 -175 100 -195 118 -240 C 90 -215 50 -228 0 -226 C -50 -228 -90 -215 -118 -240 Z" fill="${c.cream}"/>` +
             `<ellipse class="nose" cx="0" cy="-228" rx="13" ry="9" fill="${c.dark}"/>`,
           extra: "",
+        };
+      },
+      cat(c) {
+        // c.stripes adds tabby marks (forehead, cheeks, back of the tail)
+        const stripes = c.stripes
+          ? `<path d="M -22 -340 Q -16 -312 -10 -300 M 0 -345 L 0 -305 M 22 -340 Q 16 -312 10 -300 M -112 -262 L -88 -258 M -110 -240 L -90 -242 M 112 -262 L 88 -258 M 110 -240 L 90 -242" stroke="${c.furDark}" stroke-width="7" stroke-linecap="round" fill="none"/>`
+          : "";
+        return {
+          neck: -150,
+          face: { ey: -262, gap: 42, my: -200, mw: 16, browY: -296, cheekY: -224 },
+          back:
+            `<g class="tail" data-px="-50" data-py="-70"><path d="M -48 -62 C -130 -60 -170 -120 -150 -190 C -138 -235 -100 -250 -110 -285" fill="none" stroke="${c.dark}" stroke-width="30" stroke-linecap="round"/>` +
+            `<path d="M -48 -62 C -130 -60 -170 -120 -150 -190 C -138 -235 -100 -250 -110 -285" fill="none" stroke="${c.fur}" stroke-width="20" stroke-linecap="round"/>` +
+            (c.stripes
+              ? `<path d="M -140 -120 L -160 -118 M -152 -170 L -172 -176 M -126 -228 L -146 -240" stroke="${c.furDark}" stroke-width="8" stroke-linecap="round"/>`
+              : "") +
+            `</g>`,
+          legs: leg("legL", -32, c.fur, c.dark) + leg("legR", 32, c.fur, c.dark),
+          armBack: arm("armB", -50, -122, 60, 28, c.fur, c.dark, c.cream),
+          body:
+            `<ellipse cx="0" cy="-88" rx="68" ry="76" fill="${c.fur}" stroke="${c.dark}" stroke-width="5"/>` +
+            `<ellipse cx="0" cy="-76" rx="42" ry="52" fill="${c.cream}"/>` +
+            `<path d="M -36 -150 Q 0 -134 36 -150" stroke="${c.accent}" stroke-width="12" fill="none" stroke-linecap="round"/>` +
+            `<circle cx="0" cy="-136" r="11" fill="#FFD84A" stroke="${c.dark}" stroke-width="3"/>`,
+          armFront: arm("armF", 50, -122, 60, 28, c.fur, c.dark, c.cream),
+          ears:
+            `<g class="earL" data-px="-72" data-py="-322"><path d="M -112 -300 Q -118 -372 -100 -392 Q -66 -360 -46 -334 Z" fill="${c.fur}" stroke="${c.dark}" stroke-width="5" stroke-linejoin="round"/><path d="M -100 -314 Q -104 -360 -96 -372 Q -74 -350 -62 -334 Z" fill="${c.inner}"/></g>` +
+            `<g class="earR" data-px="72" data-py="-322"><path d="M 112 -300 Q 118 -372 100 -392 Q 66 -360 46 -334 Z" fill="${c.fur}" stroke="${c.dark}" stroke-width="5" stroke-linejoin="round"/><path d="M 100 -314 Q 104 -360 96 -372 Q 74 -350 62 -334 Z" fill="${c.inner}"/></g>`,
+          head:
+            `<ellipse cx="0" cy="-258" rx="122" ry="98" fill="${c.fur}" stroke="${c.dark}" stroke-width="5"/>` +
+            stripes +
+            `<circle cx="-18" cy="-212" r="24" fill="${c.cream}"/><circle cx="18" cy="-212" r="24" fill="${c.cream}"/>` +
+            `<path class="nose" d="M -10 -232 L 10 -232 L 0 -220 Z" fill="${c.inner}" stroke="${c.dark}" stroke-width="3" stroke-linejoin="round"/>`,
+          extra: `<path d="M -42 -218 L -128 -232 M -42 -208 L -130 -206 M -42 -198 L -122 -182 M 42 -218 L 128 -232 M 42 -208 L 130 -206 M 42 -198 L 122 -182" stroke="${c.dark}" stroke-width="3" stroke-linecap="round" opacity=".7"/>`,
         };
       },
       hedgehog(c) {
@@ -718,7 +760,9 @@ window.KidsRig =
         `<stop offset="0" stop-color="${sky[0]}"/><stop offset=".55" stop-color="${sky[1]}"/><stop offset="1" stop-color="${sky[2]}"/></linearGradient></defs>` +
         `<rect x="-1400" y="-1400" width="5600" height="3800" fill="url(#kr-sky-${place}${time})"/>`;
       const twinkles = [];
-      if (time === "night") {
+      if (time === "night" && setting.rain) {
+        skyInner += `<g fill="#1B2550" opacity=".9"><ellipse cx="300" cy="80" rx="420" ry="120"/><ellipse cx="1100" cy="40" rx="520" ry="140"/><ellipse cx="1800" cy="110" rx="420" ry="120"/><ellipse cx="-300" cy="120" rx="400" ry="110"/><ellipse cx="2500" cy="60" rx="420" ry="130"/></g>`;
+      } else if (time === "night") {
         for (let i = 0; i < 140; i++) {
           const x = -1300 + rnd() * 5400,
             y = -1300 + rnd() * 1900,
@@ -803,7 +847,7 @@ window.KidsRig =
       mk(1, near);
       // fireflies (night) live on the near layer
       const flies = [];
-      if (time === "night" || time === "sunset") {
+      if ((time === "night" || time === "sunset") && !setting.rain) {
         const fl = layers[layers.length - 1].el;
         for (let i = 0; i < 26; i++) {
           const c = document.createElementNS(NS, "circle");
@@ -870,6 +914,28 @@ window.KidsRig =
       const fxG = document.createElementNS(NS, "g");
       svg.appendChild(fxG);
       const sparkles = [];
+      // rain: streaks over the whole world, falling as a pure function of t
+      const rain = [];
+      if (D.setting.rain) {
+        const rr = mulberry32(hash("rain" + (D.setting.seed || "")));
+        const rg = document.createElementNS(NS, "g");
+        rg.setAttribute("stroke", "#BFD8FF");
+        rg.setAttribute("stroke-width", "4");
+        rg.setAttribute("stroke-linecap", "round");
+        rg.setAttribute("opacity", ".55");
+        for (let i = 0; i < 170; i++) {
+          const l = document.createElementNS(NS, "line");
+          rg.appendChild(l);
+          rain.push({
+            el: l,
+            x: -500 + rr() * 2900,
+            y: rr() * 2000,
+            v: 1300 + rr() * 500,
+            len: 30 + rr() * 30,
+          });
+        }
+        fxG.appendChild(rg);
+      }
       for (const fx of D.fx || []) {
         if (fx[1] !== "sparkles" && fx[1] !== "trail") continue;
         const rnd = mulberry32(hash(String(fx[0]) + fx[1]));
@@ -1157,6 +1223,14 @@ window.KidsRig =
         const positions = {};
         for (const id in chars) positions[id] = posAt(D.chars[id], t);
         for (const id in chars) renderChar(chars[id], t, positions);
+        for (const r of rain) {
+          const y = -700 + ((r.y + t * r.v) % 2000);
+          const x = r.x - (y + 700) * 0.12;
+          r.el.setAttribute("x1", f(x));
+          r.el.setAttribute("y1", f(y));
+          r.el.setAttribute("x2", f(x - r.len * 0.12));
+          r.el.setAttribute("y2", f(y + r.len));
+        }
         // particles
         for (const s of sparkles) {
           const [t0, kind, a, b, dur] = s.fx;

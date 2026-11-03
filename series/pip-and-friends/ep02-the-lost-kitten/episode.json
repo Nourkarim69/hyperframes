@@ -1,0 +1,523 @@
+{
+  "number": 2,
+  "title": "Pip and the Lost Kitten",
+  "lesson": "Being brave doesn't mean you're never scared. It means helping, even when you are.",
+  "next": "Next time on Pip and Friends: Hazel thinks her spikes keep everyone away...",
+  "scenes": [
+    {
+      "id": "s01",
+      "setting": {
+        "place": "burrow",
+        "time": "night",
+        "rain": true,
+        "seed": "storm"
+      },
+      "chars": {
+        "pip": {
+          "x": 1280,
+          "face": 1,
+          "emo": "worried",
+          "look": "up"
+        },
+        "mittens": {
+          "x": 2250,
+          "face": -1,
+          "emo": "sad"
+        }
+      },
+      "beats": [
+        {
+          "say": "narrator",
+          "text": "One stormy night, the rain went pitter-patter on Pip's little round door.",
+          "sfx": ["thunder"],
+          "fx": [["flash", 0.2]]
+        },
+        {
+          "say": "pip",
+          "text": "Ooh! Thunder! I don't like storms one bit.",
+          "cam": "pip",
+          "do": {
+            "pip": {
+              "emo": "scared",
+              "gest": "shake"
+            }
+          }
+        },
+        {
+          "wait": 2.0,
+          "sfx": ["knock"],
+          "cam": "wide",
+          "do": {
+            "pip": {
+              "emo": "surprised",
+              "look": "right",
+              "gest": "hop"
+            }
+          }
+        },
+        {
+          "say": "pip",
+          "text": "Somebody's knocking! Who's there?",
+          "do": {
+            "pip": {
+              "emo": "worried",
+              "look": "right"
+            }
+          }
+        },
+        {
+          "say": "mittens",
+          "text": "Mew... Hello? I'm lost, and I'm so cold.",
+          "cam": "mittens",
+          "do": {
+            "mittens": {
+              "move": [1520],
+              "time": 1.4,
+              "emo": "sad"
+            },
+            "pip": {
+              "look": "mittens"
+            }
+          }
+        },
+        {
+          "say": "pip",
+          "text": "Oh no! A little kitten! You're soaking wet! Come in, come in!",
+          "cam": "wide",
+          "do": {
+            "pip": {
+              "emo": "worried",
+              "gest": "hug",
+              "move": [1360],
+              "time": 0.8
+            }
+          }
+        },
+        {
+          "say": "mittens",
+          "text": "I'm Mittens. I was chasing a butterfly, and now I can't find my mama.",
+          "cam": "mittens",
+          "do": {
+            "mittens": {
+              "emo": "sad",
+              "look": "pip"
+            }
+          }
+        },
+        {
+          "wait": 0.6,
+          "sfx": ["thunder"],
+          "fx": [["flash", 0.0]],
+          "do": {
+            "mittens": {
+              "emo": "scared",
+              "gest": "jump"
+            },
+            "pip": {
+              "emo": "scared",
+              "gest": "shake"
+            }
+          }
+        },
+        {
+          "say": "mittens",
+          "text": "Eek! The sky is so loud!",
+          "do": {
+            "mittens": {
+              "emo": "scared",
+              "gest": "shake"
+            }
+          }
+        },
+        {
+          "say": "pip",
+          "text": "It's okay, Mittens. I'm a little scared too. But do you know what thunder is?",
+          "cam": "pip",
+          "do": {
+            "pip": {
+              "emo": "determined",
+              "look": "mittens"
+            }
+          }
+        },
+        {
+          "say": "pip",
+          "text": "It's just the sky clapping its big hands! Clap, clap, BOOM!",
+          "cam": "wide",
+          "do": {
+            "pip": {
+              "emo": "excited",
+              "gest": "cheer"
+            },
+            "mittens": {
+              "emo": "surprised",
+              "look": "pip"
+            }
+          }
+        },
+        {
+          "say": "mittens",
+          "text": "Hee hee! The sky is clapping!",
+          "sfx": ["sparkle"],
+          "do": {
+            "mittens": {
+              "emo": "happy",
+              "gest": "bounce"
+            }
+          }
+        },
+        {
+          "say": "pip",
+          "text": "When the storm is over, I'll help you find your mama. I promise!",
+          "do": {
+            "pip": {
+              "emo": "determined",
+              "gest": "point"
+            },
+            "mittens": {
+              "emo": "happy"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "setting": {
+        "place": "forest",
+        "time": "night",
+        "seed": "afterstorm"
+      },
+      "chars": {
+        "pip": {
+          "x": -200,
+          "face": 1,
+          "emo": "determined"
+        },
+        "mittens": {
+          "x": -420,
+          "face": 1,
+          "emo": "worried"
+        },
+        "hazel": {
+          "x": 1350,
+          "face": -1,
+          "emo": "neutral"
+        }
+      },
+      "beats": [
+        {
+          "say": "narrator",
+          "text": "Soon, the rain stopped, and the fireflies came out to light the way.",
+          "do": {
+            "pip": {
+              "move": [700],
+              "time": 2.4
+            },
+            "mittens": {
+              "move": [500],
+              "time": 2.6
+            }
+          }
+        },
+        {
+          "say": "pip",
+          "text": "Mama Cat! Mama Cat! Where are you?",
+          "do": {
+            "pip": {
+              "gest": "wave",
+              "look": "up"
+            }
+          }
+        },
+        {
+          "say": "hazel",
+          "text": "Oh prickles! Who's shouting in the dark?",
+          "cam": "hazel",
+          "sfx": ["pop"],
+          "do": {
+            "hazel": {
+              "emo": "scared",
+              "gest": "jump"
+            },
+            "mittens": {
+              "emo": "scared",
+              "look": "hazel"
+            }
+          }
+        },
+        {
+          "say": "pip",
+          "text": "It's just me, Hazel! This is Mittens. She's lost.",
+          "cam": "wide",
+          "do": {
+            "pip": {
+              "emo": "happy",
+              "gest": "point"
+            }
+          }
+        },
+        {
+          "say": "hazel",
+          "text": "A lost kitten? Oh, you poor little thing!",
+          "do": {
+            "hazel": {
+              "emo": "worried",
+              "look": "mittens"
+            }
+          }
+        },
+        {
+          "say": "hazel",
+          "text": "Wait! When I was hiding from the rain, I heard someone calling: Mittens! Mittens! By the pond!",
+          "cam": "hazel",
+          "do": {
+            "hazel": {
+              "emo": "excited",
+              "gest": "point"
+            }
+          }
+        },
+        {
+          "say": "mittens",
+          "text": "That's my mama! Let's go! Let's go!",
+          "cam": "mittens",
+          "sfx": ["chime"],
+          "do": {
+            "mittens": {
+              "emo": "excited",
+              "gest": "jump"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "setting": {
+        "place": "pond",
+        "time": "night",
+        "seed": "reunion"
+      },
+      "chars": {
+        "pip": {
+          "x": 520,
+          "face": 1,
+          "emo": "determined"
+        },
+        "hazel": {
+          "x": 250,
+          "face": 1,
+          "emo": "neutral"
+        },
+        "mittens": {
+          "x": 760,
+          "face": 1,
+          "emo": "worried"
+        },
+        "mama": {
+          "x": 2300,
+          "face": -1,
+          "emo": "worried"
+        }
+      },
+      "beats": [
+        {
+          "say": "mama",
+          "text": "Mittens! Mittens! Where are you, my little one?",
+          "do": {
+            "mama": {
+              "move": [1450],
+              "time": 2.0,
+              "emo": "worried"
+            },
+            "mittens": {
+              "look": "mama",
+              "emo": "surprised"
+            }
+          }
+        },
+        {
+          "say": "mittens",
+          "text": "MAMA!",
+          "cam": "mittens",
+          "sfx": ["sparkle"],
+          "do": {
+            "mittens": {
+              "emo": "excited",
+              "gest": "jump",
+              "move": [1180],
+              "time": 1.0
+            }
+          }
+        },
+        {
+          "say": "mama",
+          "text": "Oh, Mittens! I was looking everywhere for you!",
+          "cam": "mama",
+          "do": {
+            "mama": {
+              "emo": "happy",
+              "gest": "hug"
+            },
+            "mittens": {
+              "emo": "happy",
+              "gest": "hug"
+            }
+          },
+          "fx": [["sparkles", "mittens", 1.4]]
+        },
+        {
+          "say": "mittens",
+          "text": "Pip kept me safe in the storm, Mama. He told me thunder is the sky clapping!",
+          "cam": "wide",
+          "do": {
+            "mittens": {
+              "emo": "excited",
+              "look": "pip",
+              "gest": "point"
+            }
+          }
+        },
+        {
+          "say": "mama",
+          "text": "Thank you, Pip. That was very brave and very kind.",
+          "do": {
+            "mama": {
+              "emo": "happy",
+              "look": "pip",
+              "gest": "nod"
+            }
+          }
+        },
+        {
+          "say": "pip",
+          "text": "I was scared too. But I could still help!",
+          "cam": "pip",
+          "do": {
+            "pip": {
+              "emo": "proud",
+              "gest": "shrug"
+            },
+            "hazel": {
+              "emo": "happy",
+              "gest": "cheer"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Being brave doesn't mean you're never scared. It means helping, even when you are.",
+          "cam": "wide",
+          "do": {
+            "pip": {
+              "emo": "happy"
+            },
+            "mittens": {
+              "emo": "happy",
+              "gest": "bounce"
+            }
+          }
+        },
+        {
+          "say": "mittens",
+          "text": "Bye bye, Pip! Bye bye, Hazel! Thank you!",
+          "do": {
+            "mittens": {
+              "gest": "wave",
+              "move": [2300],
+              "time": 3.0,
+              "at": 0.8
+            },
+            "mama": {
+              "gest": "wave",
+              "move": [2400],
+              "time": 3.0,
+              "at": 1.0
+            },
+            "pip": {
+              "gest": "wave"
+            },
+            "hazel": {
+              "gest": "wave"
+            }
+          },
+          "wait": 3.6
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "setting": {
+        "place": "burrow",
+        "time": "night",
+        "seed": "starry"
+      },
+      "chars": {
+        "pip": {
+          "x": 900,
+          "face": 1,
+          "emo": "sleepy",
+          "look": "up"
+        },
+        "twinkle": {
+          "x": 1250,
+          "y": 260,
+          "face": -1,
+          "emo": "happy",
+          "glow": 1.3,
+          "scale": 0.4
+        }
+      },
+      "beats": [
+        {
+          "say": "narrator",
+          "text": "That night, Pip went home tired, but very, very happy.",
+          "do": {
+            "twinkle": {
+              "gest": "bounce"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "And up in the sky, one little star twinkled just for him.",
+          "cam": "twinkle",
+          "sfx": ["chime"],
+          "fx": [["sparkles", "twinkle", 1.4]]
+        },
+        {
+          "say": "pip",
+          "text": "Goodnight, Twinkle. Goodnight, Mittens.",
+          "cam": "pip",
+          "do": {
+            "pip": {
+              "emo": "sleepy",
+              "gest": "wave"
+            }
+          },
+          "wait": 4.0
+        }
+      ]
+    }
+  ],
+  "shorts": [
+    {
+      "id": "short1",
+      "scenes": ["s01"],
+      "from_beat": 1,
+      "hook": "Who is knocking in the STORM?!"
+    },
+    {
+      "id": "short2",
+      "scenes": ["s02"],
+      "from_beat": 2,
+      "hook": "Hazel got SCARED again!"
+    },
+    {
+      "id": "short3",
+      "scenes": ["s03"],
+      "hook": "Will the kitten find her MAMA?"
+    }
+  ]
+}

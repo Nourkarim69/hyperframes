@@ -1,7 +1,11 @@
 {
   "series": "Pip & Friends",
   "tagline": "Bedtime adventures in Whispering Woods",
-  "narrator": { "voice": "bf_emma", "speed": 0.92, "pitch": 0 },
+  "narrator": {
+    "voice": "bf_emma",
+    "speed": 0.92,
+    "pitch": 0
+  },
   "characters": {
     "pip": {
       "name": "Pip",
@@ -34,6 +38,33 @@
       "voice": "af_nicole",
       "speed": 0.98,
       "pitch": 6
+    },
+    "mittens": {
+      "name": "Mittens",
+      "species": "cat",
+      "scale": 0.62,
+      "voice": "af_kore",
+      "speed": 1.0,
+      "pitch": 6,
+      "color": "#D6DCFF"
+    },
+    "mama": {
+      "name": "Mama Cat",
+      "species": "cat",
+      "scale": 1.0,
+      "voice": "af_aoede",
+      "speed": 0.95,
+      "pitch": 1,
+      "color": "#FFC27A",
+      "palette": {
+        "fur": "#F2A65A",
+        "furDark": "#C9732B",
+        "cream": "#FFF3E0",
+        "dark": "#3B2416",
+        "inner": "#F7B6A0",
+        "accent": "#4FB3BF",
+        "stripes": true
+      }
     }
   }
 }
