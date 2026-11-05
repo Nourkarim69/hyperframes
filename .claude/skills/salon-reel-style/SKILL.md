@@ -73,6 +73,22 @@ Chaîne éprouvée sur les premiers clients ; les rushs du téléphone sont en H
 
 Étalonnage par défaut : `eq=contrast=1.1:brightness=-0.03:saturation=0.8:gamma=0.92,vignette=angle=PI/5` sur la conversion HDR → SDR (luminance ~75-80).
 
+## Identité MH Coiffure (sur TOUTES les vidéos)
+
+Salon **MH Coiffure**, 50 quai Saint-Vincent, 69001 Lyon · Instagram **@mhcoiffurelyon1** · www.mh-concept.co · spécialités : boucles, balayage, coupe, soin.
+
+- **Filigrane** : `marque/logo-blanc.png` (logo officiel détouré en blanc), 250 px de large, centré en haut (top 205 px), opacité 0,85, pendant toute la vidéo sauf la carte de fin.
+- **Carte de fin** (2,5 à 4 s) : dernière image assombrie à 74 %, `marque/logo-carre.jpg` (logo officiel carré, dégradé sable, www.mh-concept.co) en 560 px aux coins arrondis, puis `@mhcoiffurelyon1` et `50 QUAI SAINT-VINCENT · LYON 1ER`.
+- Code prêt à l'emploi : `scripts/marque.py` (`copier_logos`, `filigrane`, `carte`, `CSS`).
+- Ne jamais redessiner le logo : toujours utiliser ces fichiers.
+
+## Formats qui ont plu (nov. 2026)
+
+- **Inspiration → avant → après** : le client montre la photo voulue sur son téléphone (« IL M'A MONTRÉ ÇA 📱 »), avant de dos, plongée zoom dans les cheveux avec flou, sortie zoom arrière sur l'après au même angle, résultat sur les temps.
+- **Transformation avec paroles** : garder les échanges coiffeuse/cliente (son d'origine + sous-titres blancs contour noir au tiers bas), musique baissée sous les paroles, montages musicaux entre les deux. Accroche vérifiée sur ce qui est dit (ex. « 4 ANS DE LISSEUR… ON ARRÊTE ❌ »).
+- **Copie de tendance** : reprendre exactement les instants de coupe d'une vidéo de référence et livrer SANS musique, pour que le salon ajoute le son d'origine dans l'appli.
+- Couleurs naturelles (pas l'étalonnage sombre) pour ces formats ; toujours une version sans musique en plus.
+
 ## Méthode pour chaque nouveau client
 
 1. Lister les rushs reçus (`ffprobe`), repérer les plans (`scenedetect` ou `ffmpeg select=gt(scene,0.2)`), faire une planche contact pour choisir les meilleurs gestes.
