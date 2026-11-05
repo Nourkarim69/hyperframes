@@ -25,7 +25,7 @@ def copier_logos(assets_dir):
         shutil.copy(os.path.join(MARQUE, f), os.path.join(assets_dir, f))
 
 
-def filigrane(end):
+def filigrane(end):  # non utilisé : le salon veut le logo uniquement sur la carte de fin
     """Petit logo blanc en haut, de 0 à `end` (le début de la carte de fin)."""
     return f'      <img id="filigrane" class="clip" src="assets/logo-blanc.png" alt="MH Coiffure" data-start="0" data-duration="{end}" data-track-index="9" />'
 

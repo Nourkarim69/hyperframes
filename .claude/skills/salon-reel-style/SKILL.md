@@ -77,7 +77,7 @@ Chaîne éprouvée sur les premiers clients ; les rushs du téléphone sont en H
 
 Salon **MH Coiffure**, 50 quai Saint-Vincent, 69001 Lyon · Instagram **@mhcoiffurelyon1** · www.mh-concept.co · spécialités : boucles, balayage, coupe, soin.
 
-- **Filigrane** : `marque/logo-blanc.png` (logo officiel détouré en blanc), 250 px de large, centré en haut (top 205 px), opacité 0,85, pendant toute la vidéo sauf la carte de fin.
+- **Pas de logo pendant la vidéo** (demande du salon) : le logo n'apparaît que sur la carte de fin.
 - **Carte de fin** (2,5 à 4 s) : dernière image assombrie à 74 %, `marque/logo-carre.jpg` (logo officiel carré, dégradé sable, www.mh-concept.co) en 560 px aux coins arrondis, puis `@mhcoiffurelyon1` et `50 QUAI SAINT-VINCENT · LYON 1ER`.
 - Code prêt à l'emploi : `scripts/marque.py` (`copier_logos`, `filigrane`, `carte`, `CSS`).
 - Ne jamais redessiner le logo : toujours utiliser ces fichiers.
