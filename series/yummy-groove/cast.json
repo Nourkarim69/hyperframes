@@ -76,6 +76,51 @@
       "speed": 0.95,
       "pitch": 1,
       "color": "#7EE07E"
+    },
+    "carrot": {
+      "name": "Carrot",
+      "species": "fruit:carrot",
+      "scale": 0.9,
+      "voice": "am_michael",
+      "speed": 1.05,
+      "pitch": 4,
+      "color": "#FFA54D"
+    },
+    "broccoli": {
+      "name": "Broccoli",
+      "species": "fruit:broccoli",
+      "scale": 0.9,
+      "voice": "af_river",
+      "speed": 0.95,
+      "pitch": 4,
+      "color": "#9BE38A"
+    },
+    "tomato": {
+      "name": "Tomato",
+      "species": "fruit:tomato",
+      "scale": 0.85,
+      "voice": "bf_alice",
+      "speed": 1.0,
+      "pitch": 3,
+      "color": "#FF7A6B"
+    },
+    "corn": {
+      "name": "Corn",
+      "species": "fruit:corn",
+      "scale": 0.85,
+      "voice": "am_eric",
+      "speed": 1.08,
+      "pitch": 4,
+      "color": "#FFE066"
+    },
+    "eggplant": {
+      "name": "Eggplant",
+      "species": "fruit:eggplant",
+      "scale": 0.88,
+      "voice": "bf_isabella",
+      "speed": 1.0,
+      "pitch": 2,
+      "color": "#C9A6FF"
     }
   }
 }

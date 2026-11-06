@@ -163,6 +163,73 @@ window.FruitDance =
           `<path d="M 15 -175 C 45 -205 95 -195 105 -178 C 80 -155 40 -155 15 -175 Z" fill="#3FBF5A" stroke="#1F8A36" stroke-width="4"/>`,
         face: { y: 15, s: 1 },
       },
+      // ---- vegetables (same local frame: body centred on 0,0, ~300 px tall)
+      carrot: {
+        c: ["#FFB25C", "#FF7A1A", "#C2510A"],
+        limb: "#FFA54D",
+        glow: "#FF7A1A",
+        body: (g) =>
+          `<path d="M -42 -118 L -70 -205 L -18 -140 L 0 -225 L 18 -140 L 70 -205 L 42 -118 Z" fill="#3FBF5A" stroke="#1F8A36" stroke-width="5" stroke-linejoin="round"/>` +
+          `<path d="M -100 -100 C -100 -140 100 -140 100 -100 C 96 -10 40 120 0 180 C -40 120 -96 -10 -100 -100 Z" fill="url(#${g})"/>` +
+          `<path d="M -70 -40 L -40 -36 M 50 10 L 78 6 M -50 70 L -26 72 M 30 110 L 48 106" stroke="#C2510A" stroke-width="6" stroke-linecap="round" opacity=".6"/>`,
+        face: { y: -50, s: 0.95 },
+        limbY: -40,
+        limbX: 110,
+      },
+      broccoli: {
+        c: ["#8EE07A", "#3FA34D", "#1F6B2E"],
+        limb: "#9BE38A",
+        glow: "#3FBF5A",
+        body: (g) =>
+          `<path d="M -60 20 L -45 160 L 45 160 L 60 20 Z" fill="#B9EBA0" stroke="#6FB65C" stroke-width="5" stroke-linejoin="round"/>` +
+          `<circle cx="-90" cy="-40" r="75" fill="url(#${g})"/><circle cx="90" cy="-40" r="75" fill="url(#${g})"/>` +
+          `<circle cx="-45" cy="-120" r="80" fill="url(#${g})"/><circle cx="45" cy="-120" r="80" fill="url(#${g})"/>` +
+          `<circle cx="0" cy="-50" r="105" fill="url(#${g})"/>` +
+          `<g fill="#2E8A3E" opacity=".45"><circle cx="-120" cy="-70" r="10"/><circle cx="-60" cy="-160" r="9"/><circle cx="70" cy="-165" r="10"/><circle cx="130" cy="-30" r="9"/><circle cx="-130" cy="0" r="8"/></g>`,
+        face: { y: -50, s: 0.95 },
+        limbY: 40,
+        limbX: 75,
+      },
+      tomato: {
+        c: ["#FF7A6B", "#F2302A", "#A3120F"],
+        limb: "#FF8A7A",
+        glow: "#FF3B30",
+        body: (g) =>
+          `<ellipse cx="0" cy="10" rx="155" ry="135" fill="url(#${g})"/>` +
+          `<path d="M 0 -118 L -30 -150 L -10 -120 L -70 -130 L -20 -108 L -50 -80 L 0 -100 L 50 -80 L 20 -108 L 70 -130 L 10 -120 L 30 -150 Z" fill="#3FBF5A" stroke="#1F8A36" stroke-width="4" stroke-linejoin="round"/>` +
+          `<rect x="-6" y="-160" width="12" height="40" rx="5" fill="#2E8A3E"/>`,
+        face: { y: 15, s: 1 },
+        limbX: 150,
+      },
+      corn: {
+        c: ["#FFF08A", "#FFD21F", "#C99600"],
+        limb: "#FFE066",
+        glow: "#FFD21F",
+        body: (g) => {
+          let k = "";
+          for (let y = -140; y <= 130; y += 30)
+            for (let x = -60; x <= 60; x += 30)
+              k += `<ellipse cx="${x}" cy="${y}" rx="12" ry="13" fill="#FFE45C" stroke="#E0A800" stroke-width="2"/>`;
+          return (
+            `<ellipse cx="0" cy="0" rx="92" ry="175" fill="url(#${g})"/><g opacity=".85">${k}</g>` +
+            `<path d="M -40 175 C -150 120 -150 -20 -110 -90 C -100 0 -70 90 -10 150 Z" fill="#5CC46A" stroke="#2E8A3E" stroke-width="4" stroke-linejoin="round"/>` +
+            `<path d="M 40 175 C 150 120 150 -20 110 -90 C 100 0 70 90 10 150 Z" fill="#5CC46A" stroke="#2E8A3E" stroke-width="4" stroke-linejoin="round"/>`
+          );
+        },
+        face: { y: -40, s: 0.92 },
+        limbX: 125,
+        limbY: 0,
+      },
+      eggplant: {
+        c: ["#B58CF0", "#6B2FB3", "#3D1470"],
+        limb: "#B58CF0",
+        glow: "#7C3AED",
+        body: (g) =>
+          `<path d="M 0 -120 C 80 -125 100 -60 110 20 C 125 120 70 175 0 175 C -70 175 -125 120 -110 20 C -100 -60 -80 -125 0 -120 Z" fill="url(#${g})"/>` +
+          `<path d="M -70 -110 C -40 -150 40 -150 70 -110 C 40 -95 15 -85 0 -70 C -15 -85 -40 -95 -70 -110 Z" fill="#3FBF5A" stroke="#1F8A36" stroke-width="4" stroke-linejoin="round"/>` +
+          `<rect x="-9" y="-175" width="18" height="50" rx="7" fill="#2E8A3E"/>`,
+        face: { y: 25, s: 1 },
+      },
     };
 
     function gradDefs(id, c) {

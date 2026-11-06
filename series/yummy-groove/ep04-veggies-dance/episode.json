@@ -1,0 +1,787 @@
+{
+  "number": 4,
+  "title": "The Veggies Want to Dance",
+  "lesson": "There's no wrong way to dance: everybody can join in.",
+  "next": "Next time on Yummy Groove: more fruity fun!",
+  "scenes": [
+    {
+      "id": "s01",
+      "setting": {
+        "place": "kitchen",
+        "time": "day",
+        "blend0": 0,
+        "seed": "veg1"
+      },
+      "chars": {
+        "strawberry": {
+          "x": 480,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.9
+        },
+        "banana": {
+          "x": 700,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.88
+        },
+        "blueberry": {
+          "x": 900,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.7
+        }
+      },
+      "beats": [
+        {
+          "say": "narrator",
+          "text": "One sunny morning, the fruit friends were dancing in the kitchen.",
+          "do": {
+            "strawberry": {
+              "gest": "bounce"
+            },
+            "banana": {
+              "gest": "bounce",
+              "at": 0.25
+            },
+            "blueberry": {
+              "gest": "bounce",
+              "at": 0.5
+            }
+          }
+        },
+        {
+          "wait": 1.6,
+          "sfx": ["chime"],
+          "do": {
+            "strawberry": {
+              "emo": "surprised",
+              "look": "right",
+              "gest": "hop"
+            },
+            "banana": {
+              "emo": "surprised",
+              "look": "right"
+            },
+            "blueberry": {
+              "emo": "surprised",
+              "look": "right"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Ding dong! Somebody was at the door!"
+        },
+        {
+          "say": "strawberry",
+          "text": "Ooh! Who could that be?",
+          "cam": "strawberry",
+          "do": {
+            "strawberry": {
+              "emo": "excited",
+              "gest": "think",
+              "look": "right"
+            }
+          }
+        },
+        {
+          "wait": 1.0,
+          "do": {
+            "strawberry": {
+              "move": [2300],
+              "time": 2.2
+            },
+            "banana": {
+              "move": [2300],
+              "time": 2.4,
+              "at": 0.2
+            },
+            "blueberry": {
+              "move": [2300],
+              "time": 2.2,
+              "at": 0.4
+            }
+          },
+          "cam": "wide"
+        }
+      ]
+    },
+    {
+      "id": "s02",
+      "setting": {
+        "place": "kitchen",
+        "time": "day",
+        "blend0": 0,
+        "seed": "veg2"
+      },
+      "chars": {
+        "strawberry": {
+          "x": 330,
+          "face": 1,
+          "emo": "excited",
+          "scale": 0.78
+        },
+        "banana": {
+          "x": 510,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.76
+        },
+        "blueberry": {
+          "x": 670,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.62
+        },
+        "carrot": {
+          "x": 2300,
+          "face": -1,
+          "emo": "excited",
+          "scale": 0.8
+        },
+        "tomato": {
+          "x": 2500,
+          "face": -1,
+          "emo": "happy",
+          "scale": 0.76
+        },
+        "corn": {
+          "x": 2700,
+          "face": -1,
+          "emo": "happy",
+          "scale": 0.76
+        }
+      },
+      "beats": [
+        {
+          "wait": 1.4,
+          "do": {
+            "carrot": {
+              "move": [960],
+              "time": 1.6
+            },
+            "tomato": {
+              "move": [1140],
+              "time": 1.8
+            },
+            "corn": {
+              "move": [1320],
+              "time": 2.0
+            }
+          }
+        },
+        {
+          "say": "carrot",
+          "text": "Hello! We're the veggies! Can we come to your dance party?",
+          "cam": "carrot",
+          "do": {
+            "carrot": {
+              "gest": "wave"
+            }
+          }
+        },
+        {
+          "say": "strawberry",
+          "text": "Of course! Everybody's welcome! What are your names?",
+          "cam": "wide",
+          "do": {
+            "strawberry": {
+              "gest": "cheer"
+            }
+          }
+        },
+        {
+          "say": "carrot",
+          "text": "I'm Carrot! Crunch, crunch!",
+          "cam": "carrot",
+          "sfx": ["pop"],
+          "do": {
+            "carrot": {
+              "gest": "jump",
+              "emo": "proud"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Carrot! Can you say carrot?",
+          "wait": 3.0,
+          "do": {
+            "carrot": {
+              "look": "cam",
+              "gest": "bounce"
+            }
+          }
+        },
+        {
+          "say": "tomato",
+          "text": "I'm Tomato! Round, red and ready to roll!",
+          "cam": "tomato",
+          "sfx": ["pop"],
+          "do": {
+            "tomato": {
+              "gest": "spin",
+              "emo": "excited"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Tomato! Can you say tomato?",
+          "wait": 3.0,
+          "do": {
+            "tomato": {
+              "look": "cam",
+              "gest": "bounce"
+            }
+          }
+        },
+        {
+          "say": "corn",
+          "text": "And I'm Corn! Pop, pop, pop!",
+          "cam": "corn",
+          "sfx": ["pop"],
+          "do": {
+            "corn": {
+              "gest": "jump",
+              "emo": "excited"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Corn! Can you say corn?",
+          "cam": "wide",
+          "wait": 3.0,
+          "do": {
+            "corn": {
+              "look": "cam",
+              "gest": "bounce"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s03",
+      "setting": {
+        "place": "kitchen",
+        "time": "day",
+        "blend0": 0,
+        "seed": "veg3"
+      },
+      "chars": {
+        "strawberry": {
+          "x": 360,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.78
+        },
+        "banana": {
+          "x": 540,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.76
+        },
+        "blueberry": {
+          "x": 700,
+          "face": 1,
+          "emo": "happy",
+          "scale": 0.62
+        },
+        "eggplant": {
+          "x": 2300,
+          "face": -1,
+          "emo": "proud",
+          "scale": 0.8
+        },
+        "broccoli": {
+          "x": 1260,
+          "face": -1,
+          "emo": "worried",
+          "scale": 0.78,
+          "look": "down"
+        }
+      },
+      "beats": [
+        {
+          "say": "eggplant",
+          "text": "Wait for me! I'm Eggplant! Purple and proud!",
+          "sfx": ["sparkle"],
+          "do": {
+            "eggplant": {
+              "move": [900],
+              "time": 1.6,
+              "gest": "cheer"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Eggplant! Can you say eggplant?",
+          "wait": 3.0,
+          "do": {
+            "eggplant": {
+              "look": "cam",
+              "gest": "bounce"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "But somebody was hiding at the back.",
+          "cam": "broccoli",
+          "do": {
+            "broccoli": {
+              "emo": "sad",
+              "look": "down"
+            }
+          }
+        },
+        {
+          "say": "blueberry",
+          "text": "Hello! What's your name?",
+          "cam": "wide",
+          "do": {
+            "blueberry": {
+              "move": [1060],
+              "time": 1.4,
+              "emo": "happy",
+              "look": "broccoli"
+            }
+          }
+        },
+        {
+          "say": "broccoli",
+          "text": "I'm... Broccoli. But I can't come to the party. I don't know how to dance.",
+          "cam": "broccoli",
+          "do": {
+            "broccoli": {
+              "emo": "sad"
+            }
+          }
+        },
+        {
+          "say": "strawberry",
+          "text": "Everybody can dance, Broccoli! Just wiggle the way YOU like!",
+          "cam": "wide",
+          "do": {
+            "strawberry": {
+              "emo": "excited",
+              "gest": "shake"
+            }
+          }
+        },
+        {
+          "say": "broccoli",
+          "text": "Like... this?",
+          "cam": "broccoli",
+          "do": {
+            "broccoli": {
+              "emo": "worried",
+              "gest": "shake"
+            }
+          }
+        },
+        {
+          "say": "banana",
+          "text": "Yes! That's a super wiggle!",
+          "cam": "wide",
+          "do": {
+            "banana": {
+              "emo": "excited",
+              "gest": "cheer"
+            }
+          }
+        },
+        {
+          "say": "blueberry",
+          "text": "Do it again! Do it again!",
+          "do": {
+            "blueberry": {
+              "gest": "jump"
+            }
+          }
+        },
+        {
+          "say": "broccoli",
+          "text": "Wiggle, wiggle, wiggle! Hee hee! I CAN dance!",
+          "cam": "broccoli",
+          "sfx": ["chime"],
+          "do": {
+            "broccoli": {
+              "emo": "excited",
+              "gest": "bounce"
+            }
+          },
+          "fx": [["sparkles", "broccoli", 1.4]]
+        },
+        {
+          "say": "narrator",
+          "text": "Broccoli! Can you say broccoli?",
+          "cam": "wide",
+          "wait": 3.0,
+          "do": {
+            "broccoli": {
+              "look": "cam",
+              "gest": "jump"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "id": "s04",
+      "setting": {
+        "place": "kitchen",
+        "time": "day",
+        "blend0": 6,
+        "seed": "veg4"
+      },
+      "chars": {
+        "strawberry": {
+          "x": 250,
+          "face": 1,
+          "emo": "excited",
+          "scale": 0.6
+        },
+        "carrot": {
+          "x": 400,
+          "face": 1,
+          "emo": "excited",
+          "scale": 0.6
+        },
+        "banana": {
+          "x": 550,
+          "face": 1,
+          "emo": "excited",
+          "scale": 0.6
+        },
+        "tomato": {
+          "x": 700,
+          "face": 1,
+          "emo": "excited",
+          "scale": 0.58
+        },
+        "blueberry": {
+          "x": 850,
+          "face": 1,
+          "emo": "excited",
+          "scale": 0.5
+        },
+        "corn": {
+          "x": 1000,
+          "face": 1,
+          "emo": "excited",
+          "scale": 0.58
+        },
+        "eggplant": {
+          "x": 1150,
+          "face": 1,
+          "emo": "excited",
+          "scale": 0.6
+        },
+        "broccoli": {
+          "x": 1300,
+          "face": 1,
+          "emo": "excited",
+          "scale": 0.6
+        }
+      },
+      "beats": [
+        {
+          "say": "strawberry",
+          "text": "Fruits and veggies together! Let's dance!",
+          "sfx": ["sparkle"],
+          "do": {
+            "strawberry": {
+              "gest": "bounce"
+            },
+            "carrot": {
+              "gest": "bounce"
+            },
+            "banana": {
+              "gest": "bounce"
+            },
+            "tomato": {
+              "gest": "bounce"
+            },
+            "blueberry": {
+              "gest": "bounce"
+            },
+            "corn": {
+              "gest": "bounce"
+            },
+            "eggplant": {
+              "gest": "bounce"
+            },
+            "broccoli": {
+              "gest": "bounce"
+            }
+          }
+        },
+        {
+          "wait": 2.0,
+          "do": {
+            "strawberry": {
+              "gest": "bounce",
+              "at": 0.0
+            },
+            "carrot": {
+              "gest": "bounce",
+              "at": 0.25
+            },
+            "banana": {
+              "gest": "bounce",
+              "at": 0.0
+            },
+            "tomato": {
+              "gest": "bounce",
+              "at": 0.25
+            },
+            "blueberry": {
+              "gest": "bounce",
+              "at": 0.0
+            },
+            "corn": {
+              "gest": "bounce",
+              "at": 0.25
+            },
+            "eggplant": {
+              "gest": "bounce",
+              "at": 0.0
+            },
+            "broccoli": {
+              "gest": "bounce",
+              "at": 0.25
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Jump, jump, jump!",
+          "do": {
+            "strawberry": {
+              "gest": "jump",
+              "at": 0.0
+            },
+            "carrot": {
+              "gest": "jump",
+              "at": 0.12
+            },
+            "banana": {
+              "gest": "jump",
+              "at": 0.24
+            },
+            "tomato": {
+              "gest": "jump",
+              "at": 0.36
+            },
+            "blueberry": {
+              "gest": "jump",
+              "at": 0.48
+            },
+            "corn": {
+              "gest": "jump",
+              "at": 0.6
+            },
+            "eggplant": {
+              "gest": "jump",
+              "at": 0.72
+            },
+            "broccoli": {
+              "gest": "jump",
+              "at": 0.84
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Now wiggle like Broccoli!",
+          "do": {
+            "strawberry": {
+              "gest": "shake"
+            },
+            "carrot": {
+              "gest": "shake"
+            },
+            "banana": {
+              "gest": "shake"
+            },
+            "tomato": {
+              "gest": "shake"
+            },
+            "blueberry": {
+              "gest": "shake"
+            },
+            "corn": {
+              "gest": "shake"
+            },
+            "eggplant": {
+              "gest": "shake"
+            },
+            "broccoli": {
+              "gest": "shake"
+            }
+          },
+          "fx": [["sparkles_at", 1300, 450, 1.4]]
+        },
+        {
+          "say": "broccoli",
+          "text": "Wiggle, wiggle, wiggle!",
+          "do": {
+            "broccoli": {
+              "gest": "bounce",
+              "emo": "proud"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "Spin around!",
+          "sfx": ["whoosh-short"],
+          "do": {
+            "strawberry": {
+              "gest": "spin"
+            },
+            "carrot": {
+              "gest": "spin"
+            },
+            "banana": {
+              "gest": "spin"
+            },
+            "tomato": {
+              "gest": "spin"
+            },
+            "blueberry": {
+              "gest": "spin"
+            },
+            "corn": {
+              "gest": "spin"
+            },
+            "eggplant": {
+              "gest": "spin"
+            },
+            "broccoli": {
+              "gest": "spin"
+            }
+          }
+        },
+        {
+          "say": "narrator",
+          "text": "And hands up high!",
+          "sfx": ["chime"],
+          "do": {
+            "strawberry": {
+              "gest": "cheer"
+            },
+            "carrot": {
+              "gest": "cheer"
+            },
+            "banana": {
+              "gest": "cheer"
+            },
+            "tomato": {
+              "gest": "cheer"
+            },
+            "blueberry": {
+              "gest": "cheer"
+            },
+            "corn": {
+              "gest": "cheer"
+            },
+            "eggplant": {
+              "gest": "cheer"
+            },
+            "broccoli": {
+              "gest": "cheer"
+            }
+          },
+          "fx": [
+            ["sparkles_at", 500, 450, 1.6],
+            ["sparkles_at", 1100, 450, 1.6]
+          ]
+        },
+        {
+          "say": "narrator",
+          "text": "There's no wrong way to dance. Just move the way that makes you happy!",
+          "do": {
+            "strawberry": {
+              "gest": "bounce"
+            },
+            "carrot": {
+              "gest": "bounce"
+            },
+            "banana": {
+              "gest": "bounce"
+            },
+            "tomato": {
+              "gest": "bounce"
+            },
+            "blueberry": {
+              "gest": "bounce"
+            },
+            "corn": {
+              "gest": "bounce"
+            },
+            "eggplant": {
+              "gest": "bounce"
+            },
+            "broccoli": {
+              "gest": "bounce"
+            }
+          }
+        },
+        {
+          "wait": 1.4,
+          "do": {
+            "strawberry": {
+              "gest": "wave"
+            },
+            "carrot": {
+              "gest": "wave"
+            },
+            "banana": {
+              "gest": "wave"
+            },
+            "tomato": {
+              "gest": "wave"
+            },
+            "blueberry": {
+              "gest": "wave"
+            },
+            "corn": {
+              "gest": "wave"
+            },
+            "eggplant": {
+              "gest": "wave"
+            },
+            "broccoli": {
+              "gest": "wave"
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "shorts": [
+    {
+      "id": "short1",
+      "scenes": ["s03"],
+      "from_beat": 2,
+      "hook": "Broccoli can't DANCE?!"
+    },
+    {
+      "id": "short2",
+      "scenes": ["s02"],
+      "from_beat": 1,
+      "hook": "Meet the VEGGIES!"
+    },
+    {
+      "id": "short3",
+      "scenes": ["s04"],
+      "hook": "Can you dance like the veggies?"
+    }
+  ]
+}
