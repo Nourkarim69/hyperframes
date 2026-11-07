@@ -18,6 +18,7 @@ import sys
 import soundfile as sf
 
 HERE = os.path.dirname(os.path.abspath(__file__))
+sys.dont_write_bytecode = True  # keep __pycache__ out of the skill folders (they are mirrored to .agents/skills)
 sys.path.insert(0, os.path.join(HERE, "../../kids-series/scripts"))
 from build_episode import tts  # noqa: E402  (Kokoro + cache, shared with the kids series)
 

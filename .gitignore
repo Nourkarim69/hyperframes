@@ -145,6 +145,8 @@ packages/studio/data/
 !.agents/skills/seam-craft
 !.agents/skills/captions-overlay
 !.agents/skills/oversized-cursor
+!.agents/skills/kids-series
+!.agents/skills/sensory-dance
 skills-lock.json
 
 # Skills from other PRs (not managed here)
