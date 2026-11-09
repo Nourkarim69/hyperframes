@@ -82,6 +82,12 @@ Salon **MH Coiffure**, 50 quai Saint-Vincent, 69001 Lyon · Instagram **@mhcoiff
 - Code prêt à l'emploi : `scripts/marque.py` (`copier_logos`, `filigrane`, `carte`, `CSS`).
 - Ne jamais redessiner le logo : toujours utiliser ces fichiers.
 
+## Placement des textes (demande du salon)
+
+- **Jamais sur un visage.** Tous les textes (accroches, sous-titres des paroles, étiquettes) vont **le plus bas possible**, juste au-dessus de la zone d'interface des Reels : bas du texte à ~400 px du bas de l'image (y ≈ 1520 sur 1920). Sous-titres des paroles juste au-dessus (bas à ~560 px du bas) quand les deux sont à l'écran ensemble.
+- Exception : la carte de fin (logo, compte, adresse, appel à l'action « PRENDS RDV · LIEN EN BIO »).
+- Fin de vidéo : terminer sur le sourire de face de la cliente, puis la carte. Inviter à lire la légende (« SON HISTOIRE EN DESCRIPTION 👇 ») quand le post raconte une histoire.
+
 ## Formats qui ont plu (nov. 2026)
 
 - **Inspiration → avant → après** : le client montre la photo voulue sur son téléphone (« IL M'A MONTRÉ ÇA 📱 »), avant de dos, plongée zoom dans les cheveux avec flou, sortie zoom arrière sur l'après au même angle, résultat sur les temps.
