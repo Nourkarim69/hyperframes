@@ -88,6 +88,14 @@ Salon **MH Coiffure**, 50 quai Saint-Vincent, 69001 Lyon · Instagram **@mhcoiff
 - Exception : la carte de fin (logo, compte, adresse, appel à l'action « PRENDS RDV · LIEN EN BIO »).
 - Fin de vidéo : terminer sur le sourire de face de la cliente, puis la carte. Inviter à lire la légende (« SON HISTOIRE EN DESCRIPTION 👇 ») quand le post raconte une histoire.
 
+## L'aspect humain d'abord (retour de Maïssa, nov. 2026)
+
+- **Pas d'accéléré sur le travail** et pas de plans « séchoir » ou gestes sans interaction : ça donne l'impression de « brasser de l'air ».
+- **Garder les échanges** coiffeuse/cliente : transcrire tout le son (Whisper, après `highpass=f=200,dynaudnorm` car une musique joue souvent dans le salon), garder les réactions (« Magnifique », « J'adore ») et les conseils, avec le son d'origine nettoyé et des sous-titres ; musique baissée dessous.
+- Ne pas garder les passages privés (vie personnelle, employeur…).
+- Toujours garder le moment où la coiffeuse **fait tourner la cliente** vers le miroir et ses sourires.
+- Image plus lumineuse : `eq=brightness=0.03:contrast=1.05:saturation=1.08:gamma=1.1`.
+
 ## Formats qui ont plu (nov. 2026)
 
 - **Inspiration → avant → après** : le client montre la photo voulue sur son téléphone (« IL M'A MONTRÉ ÇA 📱 »), avant de dos, plongée zoom dans les cheveux avec flou, sortie zoom arrière sur l'après au même angle, résultat sur les temps.
